@@ -56,5 +56,10 @@ Docker build. Do not import from it.
 
 ## Deployment
 
-Docker (`Dockerfile`, multi-stage, `output: "standalone"`) targeting Coolify. The runtime
-image runs `node server.js` on port 3000 as a non-root user.
+Coolify with the **Nixpacks** build pack, Base Directory `/`, port 3000. Nixpacks detects
+Next.js and runs `npm ci` → `npm run build` → `npm start`; no Dockerfile, no build
+commands, no environment variables.
+
+This constrains `next.config.ts`: **do not add `output: "standalone"`.** That build must be
+started with `node .next/standalone/server.js`, which is not what Nixpacks invokes. Keep
+`npm start` (`next start`) as the working entrypoint.

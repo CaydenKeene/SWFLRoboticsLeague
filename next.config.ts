@@ -1,8 +1,8 @@
 import type { NextConfig } from "next";
 
-const nextConfig: NextConfig = {
-  // Emits .next/standalone so the Docker image can run without node_modules.
-  output: "standalone",
-};
+// Deployed on Coolify via Nixpacks, which runs `npm run build` then `npm start`
+// (`next start`). Do not set `output: "standalone"` here — that build expects to be
+// launched with `node .next/standalone/server.js`, and `next start` warns against it.
+const nextConfig: NextConfig = {};
 
 export default nextConfig;

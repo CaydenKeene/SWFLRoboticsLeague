@@ -91,14 +91,27 @@ should be used unmodified. Additional official FTC logo formats are in
 
 ## Deploying to Coolify
 
-The included `Dockerfile` builds a standalone Next.js server (`output: "standalone"`
-in `next.config.ts`), producing a small runtime image that starts with `node server.js`.
+Deployed with **Nixpacks**, which detects Next.js and runs `npm ci` → `npm run build` →
+`npm start` with no extra configuration.
 
-1. Push this repo to GitHub.
-2. In Coolify: **New Resource → Application → Public/Private Repository**, pick this repo.
-3. Set **Build Pack** to `Dockerfile`.
-4. Set **Port** to `3000`.
-5. Add your domain and deploy.
+In Coolify: **New Resource → Application → Public Repository**, then:
 
-No environment variables are required. The container listens on `0.0.0.0:3000` and runs
-as a non-root `nextjs` user.
+| Setting | Value |
+| --- | --- |
+| Repository URL | `https://github.com/CaydenKeene/SWFLRoboticsLeague` |
+| Branch | `main` |
+| Build Pack | `Nixpacks` |
+| Base Directory | `/` |
+| Port / Ports Exposes | `3000` |
+| Is it a static site? | unchecked |
+| Install / Build / Start Command | leave blank |
+
+Add your domain under **Configuration → General → Domains** and deploy. No environment
+variables are required.
+
+> **Do not set `output: "standalone"` in `next.config.ts`.** That build must be launched
+> with `node .next/standalone/server.js`, but Nixpacks runs `npm start` (`next start`),
+> which warns and is not the intended runner for it.
+
+The site is fully static — "Is it a static site?" is still left unchecked so Next serves
+it, which keeps `next/image` optimization working.

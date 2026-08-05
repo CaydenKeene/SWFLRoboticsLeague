@@ -3,6 +3,8 @@
 Website for the SWFL Robotics League — a FIRST Tech Challenge league serving Manatee,
 Sarasota, Charlotte, Lee, and Collier Counties, organized by SWFL Robotics, Inc.
 
+**Live at [swflrobotics.org](https://swflrobotics.org)**
+
 Built from the original design-session output (kept in [`design-reference/`](./design-reference)).
 
 ## Built With
@@ -12,16 +14,57 @@ Built from the original design-session output (kept in [`design-reference/`](./d
 - **Archivo Black** / **Barlow** via `next/font`
 - **lucide-react** icons
 
-## Getting Started
+## Running It Locally
+
+You'll need [Node.js](https://nodejs.org) 20 or newer (`node --version` to check) and git.
 
 ```bash
+git clone https://github.com/CaydenKeene/SWFLRoboticsLeague.git
+cd SWFLRoboticsLeague
 npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Open [http://localhost:3000](http://localhost:3000). The dev server hot-reloads — save a
+file and the page updates without a restart.
 
-Other scripts: `npm run build`, `npm start`, `npm run lint`.
+No environment variables, database, or API keys are required. Everything the site renders
+is in this repo.
+
+| Script | What it does |
+| --- | --- |
+| `npm run dev` | Dev server with hot reload |
+| `npm run build` | Production build — run this before opening a PR |
+| `npm start` | Serve the production build (run `npm run build` first) |
+| `npm run lint` | ESLint |
+
+### Where things live
+
+```
+src/
+├── app/
+│   ├── layout.tsx        fonts, <head> metadata
+│   ├── page.tsx          composes the page sections in order
+│   └── globals.css       Tailwind entry + custom utilities
+├── components/
+│   ├── site-header.tsx   sticky header + mobile menu
+│   ├── site-footer.tsx
+│   ├── wrap.tsx          shared page gutter
+│   └── sections/         one file per section of the page
+├── content/              all copy and season data  ← usually what you want
+└── lib/utils.ts
+public/                   logos
+design-reference/         original design output, not used at runtime
+```
+
+## Contributing
+
+1. Branch off `main`.
+2. Make your change — for content updates that means editing `src/content/`, not JSX.
+3. Run `npm run lint` and `npm run build` to confirm nothing broke.
+4. Open a pull request.
+
+Merged changes to `main` are published to the live site by the maintainer.
 
 ## Editing Site Content
 
@@ -89,29 +132,17 @@ the reference in `src/components/site-header.tsx`) once a winner is chosen.
 should be used unmodified. Additional official FTC logo formats are in
 `design-reference/uploads/`.
 
-## Deploying to Coolify
+## Deployment
 
-Deployed with **Nixpacks**, which detects Next.js and runs `npm ci` → `npm run build` →
-`npm start` with no extra configuration.
+Hosting is managed by the maintainer; contributors don't need to configure anything.
 
-In Coolify: **New Resource → Application → Public Repository**, then:
+The one thing to know: production builds and starts the app with the standard scripts —
+`npm ci` → `npm run build` → `npm start`, listening on port 3000. So `npm start` has to
+keep working.
 
-| Setting | Value |
-| --- | --- |
-| Repository URL | `https://github.com/CaydenKeene/SWFLRoboticsLeague` |
-| Branch | `main` |
-| Build Pack | `Nixpacks` |
-| Base Directory | `/` |
-| Port / Ports Exposes | `3000` |
-| Is it a static site? | unchecked |
-| Install / Build / Start Command | leave blank |
+> **Don't add `output: "standalone"` to `next.config.ts`.** It looks harmless, but that
+> build is meant to be launched with `node .next/standalone/server.js`, and `npm start`
+> is not the intended runner for it.
 
-Add your domain under **Configuration → General → Domains** and deploy. No environment
-variables are required.
-
-> **Do not set `output: "standalone"` in `next.config.ts`.** That build must be launched
-> with `node .next/standalone/server.js`, but Nixpacks runs `npm start` (`next start`),
-> which warns and is not the intended runner for it.
-
-The site is fully static — "Is it a static site?" is still left unchecked so Next serves
-it, which keeps `next/image` optimization working.
+Similarly, don't switch to `output: "export"` without discussing it first — it would
+disable `next/image` optimization and rule out ever adding a server-side route.

@@ -56,10 +56,10 @@ Docker build. Do not import from it.
 
 ## Deployment
 
-Coolify with the **Nixpacks** build pack, Base Directory `/`, port 3000. Nixpacks detects
-Next.js and runs `npm ci` → `npm run build` → `npm start`; no Dockerfile, no build
-commands, no environment variables.
+Production runs the standard scripts — `npm ci` → `npm run build` → `npm start` — on port
+3000. No Dockerfile, no custom build commands, no environment variables.
 
 This constrains `next.config.ts`: **do not add `output: "standalone"`.** That build must be
-started with `node .next/standalone/server.js`, which is not what Nixpacks invokes. Keep
-`npm start` (`next start`) as the working entrypoint.
+started with `node .next/standalone/server.js`, not `npm start`. Keep `next start` working
+as the entrypoint. Do not switch to `output: "export"` either without checking first — it
+disables `next/image` optimization and precludes server-side routes.

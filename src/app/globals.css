@@ -25,22 +25,30 @@
     clip-path: polygon(0 0, 100% 0, 100% 88%, 88% 100%, 0 100%);
   }
 
-  /* Two diagonal accent stripes raking across the hero background. */
+  /*
+   * Two diagonal accent stripes raking across the hero background.
+   *
+   * Edges are near-hard stops (~0.06% ≈ 1px of ramp) so they read as crisp
+   * bars. A wider ramp feathers into visible blur, since the gradient line on
+   * a full-width hero is ~1600px long. The zero-alpha stops are color-matched
+   * rather than `transparent`, which would interpolate through rgba(0,0,0,0)
+   * and leave a dark fringe against the navy.
+   */
   .hero-stripes {
     background:
       linear-gradient(
         115deg,
-        transparent 55%,
-        #f26722 55.5%,
-        #f26722 58%,
-        transparent 58.5%
+        rgba(242, 103, 34, 0) 55.19%,
+        #f26722 55.25%,
+        #f26722 57.75%,
+        rgba(242, 103, 34, 0) 57.81%
       ),
       linear-gradient(
         115deg,
-        transparent 62%,
-        #0e7c7b 62.5%,
-        #0e7c7b 64%,
-        transparent 64.5%
+        rgba(14, 124, 123, 0) 62.19%,
+        #0e7c7b 62.25%,
+        #0e7c7b 63.75%,
+        rgba(14, 124, 123, 0) 63.81%
       );
   }
 }

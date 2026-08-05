@@ -1,6 +1,8 @@
 export const site = {
   name: "SWFL Robotics League",
   organization: "SWFL Robotics, Inc.",
+  /** Canonical origin, used to resolve metadata and link-preview URLs. */
+  url: "https://swflrobotics.org",
   season: "2026–2027 Season",
   email: "SWFLrobotic@gmail.com",
   // Swap in the real donation link when it exists; "#" renders the button as disabled.

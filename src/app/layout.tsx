@@ -18,6 +18,8 @@ const body = Barlow({
 });
 
 export const metadata: Metadata = {
+  // Resolves link-preview URLs against the live domain instead of localhost.
+  metadataBase: new URL(site.url),
   title: `${site.name} | FIRST Tech Challenge`,
   description: site.description,
   openGraph: {

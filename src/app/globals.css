@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* Keep anchored sections clear of the sticky header. */
+    scroll-padding-top: 6rem;
+  }
+
+  body {
+    @apply bg-cream font-sans text-navy antialiased;
+  }
+}
+
+@layer utilities {
+  /* Angled right edge — the league's button and badge shape. */
+  .clip-slant {
+    clip-path: polygon(0 0, 100% 0, 94% 100%, 0 100%);
+  }
+
+  /* Notched bottom-right corner, used on light cards over the navy hero. */
+  .clip-notch {
+    clip-path: polygon(0 0, 100% 0, 100% 88%, 88% 100%, 0 100%);
+  }
+
+  /* Two diagonal accent stripes raking across the hero background. */
+  .hero-stripes {
+    background:
+      linear-gradient(
+        115deg,
+        transparent 55%,
+        #f26722 55.5%,
+        #f26722 58%,
+        transparent 58.5%
+      ),
+      linear-gradient(
+        115deg,
+        transparent 62%,
+        #0e7c7b 62.5%,
+        #0e7c7b 64%,
+        transparent 64.5%
+      );
+  }
+}

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <script src="./image-slot.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Barlow:wght@400;500;600;700;800&display=swap');
+    body { margin: 0; }
+    a { color: #C4531A; text-decoration: none; }
+    a:hover { color: #C4531A; }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 32px; }
+    @media (max-width: 760px) {
+      .hero-grid { grid-template-columns: 1fr !important; }
+      .sched-grid { grid-template-columns: 1fr !important; }
+    }
+  </style>
+</helmet>
+
+<div style="background: #F7EFDE; color: #0B2545; font-family: 'Barlow', system-ui, sans-serif;">
+
+  <header style="background: #0B2545;">
+    <div class="wrap" style="display: flex; align-items: center; gap: 20px; padding: 16px 32px; flex-wrap: wrap;">
+      <div style="width: {{ leagueLogoSize }}px; height: {{ leagueLogoSize }}px; flex: none;">
+        <img src="./league-logo-temp.svg" alt="SWFL Robotics League logo (temporary)" style="width: 100%; height: 100%; object-fit: contain;">
+      </div>
+      <nav style="display: flex; gap: 28px; margin-left: auto; align-items: center;">
+        <a href="#welcome" style="color: rgba(255,255,255,0.85); font-weight: 600; font-size: 14px;">WELCOME</a>
+        <a href="#updates" style="color: rgba(255,255,255,0.85); font-weight: 600; font-size: 14px;">UPDATES</a>
+        <a href="#schedule" style="color: rgba(255,255,255,0.85); font-weight: 600; font-size: 14px;">SCHEDULE</a>
+        <a href="#contact" style="color: rgba(255,255,255,0.85); font-weight: 600; font-size: 14px;">CONTACT</a>
+        <a href="#donate" style="color: rgba(255,255,255,0.85); font-weight: 600; font-size: 14px;">DONATE</a>
+      </nav>
+      <div style="width: {{ ftcLogoWidth }}px; height: {{ ftcLogoHeight }}px; flex: none;">
+        <img src="./ftc-logo-horizontal-reverse.png" alt="FIRST Tech Challenge logo" style="width: 100%; height: 100%; object-fit: contain;">
+      </div>
+    </div>
+  </header>
+
+  <section id="welcome" style="position: relative; background: #0B2545; overflow: hidden; padding-bottom: 90px;">
+    <div style="position: absolute; inset: 0; background: linear-gradient(115deg, transparent 55%, #F26722 55.5%, #F26722 58%, transparent 58.5%), linear-gradient(115deg, transparent 62%, #0E7C7B 62.5%, #0E7C7B 64%, transparent 64.5%); opacity: 0.9;"></div>
+    <div class="wrap hero-grid" style="position: relative; display: grid; grid-template-columns: 1.3fr 1fr; gap: 48px; align-items: end; padding-top: 64px;">
+      <div>
+        <div style="display: inline-flex; align-items: center; gap: 8px; background: #F26722; color: #0B2545; font-weight: 800; font-size: 12px; letter-spacing: 0.08em; padding: 6px 14px; margin-bottom: 20px; clip-path: polygon(0 0, 100% 0, 94% 100%, 0% 100%);">NEW LEAGUE · 2026–2027 SEASON</div>
+        
+        <h1 style="font-family: 'Archivo Black', sans-serif; font-size: 56px; line-height: 1.02; color: white; margin: 0 0 20px; max-width: 13ch; width: 812px; height: 238px">WELCOME TO THE SWFL ROBOTICS FTC LEAGUE</h1><p style="font-size: 18px; line-height: 1.55; color: rgba(255,255,255,0.75); max-width: 54ch; margin: 0 0 12px;">We're a brand-new FIRST Tech Challenge league serving Southwest Florida, organized by SWFL Robotics, Inc. This page is home base for our teams — season updates, meet dates, and everything in between.</p>
+        <p style="font-size: 18px; line-height: 1.55; color: rgba(255,255,255,0.75); max-width: 54ch; margin: 0 0 32px;">Whether you're a coach, a student, or a parent, you're in the right place. Bookmark this page — we'll keep it current all season.</p>
+        <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+          <a href="#schedule" style="background: #F26722; color: #0B2545; font-family: 'Archivo Black', sans-serif; font-size: 14px; padding: 14px 28px; clip-path: polygon(0 0, 100% 0, 94% 100%, 0% 100%);">SEE THE SCHEDULE</a>
+          <a href="#updates" style="border: 2px solid rgba(255,255,255,0.4); color: white; font-family: 'Archivo Black', sans-serif; font-size: 14px; padding: 12px 28px;">LATEST UPDATE</a>
+        </div>
+      </div><div style="background: white; padding: 28px; clip-path: polygon(0 0, 100% 0, 100% 88%, 88% 100%, 0 100%);">
+        <div style="font-family: 'Archivo Black', sans-serif; font-size: 11px; letter-spacing: 0.1em; color: #C4531A; margin-bottom: 8px;">OUR STORY</div>
+        <h4 style="font-family: 'Archivo Black', sans-serif; font-size: 20px; margin: 0 0 12px;">HOW THIS LEAGUE STARTED</h4>
+        <p style="opacity: 0.6; font-style: italic; margin: 0; font-size: 14px; line-height: 1.5;">For the 2025/2026 season, Florida experienced the highest grow rate of all First Tech Challenge Regions.&nbsp; Our area was previously part of the Gulf Coast Robotics League which had almost 50 registered teams last season.&nbsp; This incredible growth allow the SWFL area to now host it own league.&nbsp; This benefits teams by shortening travel to league events and benefits the league by making it easier for new teams to join the FTC experience!<br></p>
+      </div>
+      
+    </div>
+  </section>
+
+  <section id="updates" style="padding: 80px 0;">
+    <div class="wrap">
+      <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 40px; flex-wrap: wrap; gap: 12px;">
+        <div>
+          <div style="font-family: 'Archivo Black', sans-serif; font-size: 12px; letter-spacing: 0.1em; color: #C4531A; margin-bottom: 6px;">TEAM UPDATES</div>
+          <h2 style="font-family: 'Archivo Black', sans-serif; font-size: 34px; margin: 0;">LATEST MESSAGES TO TEAMS</h2>
+        </div>
+        <p style="font-size: 13px; opacity: 0.5; margin: 0; font-weight: 600;">NEWEST FIRST</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+
+        <article style="display: flex; gap: 20px; padding: 24px; background: white; border-left: 6px solid #F26722; box-shadow: 0 2px 10px rgba(0,0,0,0.06);">
+          <div>
+            <div style="display: flex; gap: 10px; align-items: center; margin-bottom: 6px;">
+              <span style="font-size: 11px; font-weight: 800; letter-spacing: 0.08em; color: #0E7C7B; border: 1px solid #0E7C7B; padding: 2px 8px;">COMING SOON</span>
+              <span style="font-size: 12px; opacity: 0.5; font-weight: 600;">AUGUST 2026</span>
+            </div>
+            <h4 style="font-family: 'Archivo Black', sans-serif; font-size: 18px; margin: 0 0 6px;">TEAM LOGO DESIGN CONTEST</h4>
+            <p style="margin: 0; font-size: 14px; opacity: 0.75; line-height: 1.5;">Coming soon — details on how your team can submit a design for the league logo.</p>
+          </div>
+        </article>
+
+        <article style="display: flex; gap: 20px; padding: 24px; background: white; border-left: 6px solid #F26722; box-shadow: 0 2px 10px rgba(0,0,0,0.06);">
+          <div>
+            <div style="display: flex; gap: 10px; align-items: center; margin-bottom: 6px;">
+              <span style="font-size: 12px; opacity: 0.5; font-weight: 600;">JULY 2026</span>
+            </div>
+            <h4 style="font-family: 'Archivo Black', sans-serif; font-size: 18px; margin: 0 0 10px;">WELCOME TO THE SWFL ROBOTICS FTC LEAGUE</h4>
+            <p style="margin: 0 0 14px; font-size: 14px; opacity: 0.75; line-height: 1.5;">Happy Summer Everyone and Welcome to the SWFL Robotics FTC League! This is our first league wide email of the 2026&ndash;27 season. Apologies in advance for its length...</p>
+
+            <div style="display: flex; flex-direction: column; gap: 14px;">
+              <div>
+                <p style="margin: 0 0 4px; font-size: 13px; font-weight: 800; color: #0B2545;">1. League Area</p>
+                <p style="margin: 0; font-size: 14px; opacity: 0.75; line-height: 1.5;">This message goes to all the team coaches I know of for FTC teams in Manatee, Sarasota, Charlotte, Lee, and Collier Counties. All teams north of Manatee County remain in the Gulf Coast Robotics League.</p>
+              </div>
+              <div>
+                <p style="margin: 0 0 4px; font-size: 13px; font-weight: 800; color: #0B2545;">2. Current Team Count</p>
+                <p style="margin: 0; font-size: 14px; opacity: 0.75; line-height: 1.5;">I already know of some new additional teams that have either formed or are forming. If all teams in these counties return plus the new teams, our team count currently sits at 25 teams &mdash; a pretty good start for the new league.</p>
+              </div>
+              <div>
+                <p style="margin: 0 0 4px; font-size: 13px; font-weight: 800; color: #0B2545;">3. Preliminary Schedule</p>
+                <p style="margin: 0; font-size: 14px; opacity: 0.75; line-height: 1.5;">See the full schedule below &mdash; kickoff September 12th at Charlotte HS, scrimmage in October, meets in November, December and January, league judging interviews January 30th, and the league championship February 13th.</p>
+              </div>
+              <div>
+                <p style="margin: 0 0 4px; font-size: 13px; font-weight: 800; color: #0B2545;">4. Kick Off Event</p>
+                <p style="margin: 0; font-size: 14px; opacity: 0.75; line-height: 1.5;">Our kick off will be held at Charlotte High School in Punta Gorda. They have a nice auditorium facility on their campus which we are fortunate to use at no expense to the league (thanks Coach George!). We will have a new game set available for teams to see after the launch! More details to follow. Address: Charlotte Performing Arts Center, 701 Carmalita St., Punta Gorda, FL.</p>
+              </div>
+              <div>
+                <p style="margin: 0 0 4px; font-size: 13px; font-weight: 800; color: #0B2545;">5. Locations Needed</p>
+                <p style="margin: 0; font-size: 14px; opacity: 0.75; line-height: 1.5;">The kick-off location is very centrally located for all teams. We're working on locations for each event but they aren't confirmed yet &mdash; if you have ideas, please send them my way. Our best opportunities are usually at high schools with FTC teams, as we get use of them for free or nearly free.</p>
+              </div>
+              <div>
+                <p style="margin: 0 0 4px; font-size: 13px; font-weight: 800; color: #0B2545;">6. Volunteers Needed</p>
+                <p style="margin: 0; font-size: 14px; opacity: 0.75; line-height: 1.5;">Craig Price with the Redhot Chili Bots will be our Volunteer Coordinator for the season &mdash; he was very helpful this past season. We've been spoiled with the great crew from the Gulf Coast League (Bob, Jim, Dan, Steve, et al.) who put on the events, but will need to build our own production crew. If you have adults in your team's organization who could help, please send me their name. Big roles to fill: Referees, FTAs, Scorers.</p>
+              </div>
+              <div>
+                <p style="margin: 0 0 4px; font-size: 13px; font-weight: 800; color: #0B2545;">7. League Assets and Needs</p>
+                <p style="margin: 0; font-size: 14px; opacity: 0.75; line-height: 1.5;">We're very fortunate that the Gulf Coast League is gifting our new league field perimeters, mats, tablets, and some sound equipment. It's not everything we'll need, but it's a great start. As we inventory what we have, we'll let everyone know of additional assets needed. One big item will be game elements &mdash; we'll likely rely on the nearest teams to each event to bring theirs for the meets. Our plan is to run a two-field setup like this past season; the league will have one game set but will need more for the meets. The one big item we need to purchase is an enclosed trailer in decent shape to transport and store the bulk of the items used for each meet.</p>
+              </div>
+              <div>
+                <p style="margin: 0 0 4px; font-size: 13px; font-weight: 800; color: #0B2545;">8. League Sponsorship</p>
+                <p style="margin: 0; font-size: 14px; opacity: 0.75; line-height: 1.5;">From a financial standpoint, we're starting with zero money to support the league and are looking for sponsors &mdash; this will help avoid any league fees during the season. Pass on any sponsor ideas you have. Donations can be made to SWFL Robotics, Inc., the nonprofit established to facilitate the league and its teams.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="schedule" style="padding: 80px 0; background: #0B2545;">
+    <div class="wrap">
+      <div style="font-family: 'Archivo Black', sans-serif; font-size: 12px; letter-spacing: 0.1em; color: #F26722; margin-bottom: 6px;">2026–2027 SEASON</div>
+      <h2 style="font-family: 'Archivo Black', sans-serif; font-size: 34px; color: white; margin: 0 0 36px;">SCHEDULE</h2>
+      <div style="display: flex; flex-direction: column; gap: 2px;">
+
+        <div class="sched-grid" style="display: grid; grid-template-columns: 160px 1fr 160px; align-items: center; padding: 18px 20px; background: rgba(255,255,255,0.06);">
+          <div style="font-family: 'Archivo Black', sans-serif; color: #F26722; font-size: 14px;">SEP 12</div>
+          <div style="color: white; font-weight: 700; font-size: 16px;">Kickoff Event</div>
+          <div style="color: rgba(255,255,255,0.6); font-size: 13px;">Charlotte HS</div>
+        </div>
+        <div class="sched-grid" style="display: grid; grid-template-columns: 160px 1fr 160px; align-items: center; padding: 18px 20px;">
+          <div style="font-family: 'Archivo Black', sans-serif; color: #F26722; font-size: 14px;">OCT 17/24</div>
+          <div style="color: white; font-weight: 700; font-size: 16px;">Scrimmage</div>
+          <div style="color: rgba(255,255,255,0.4); font-size: 13px; font-weight: 700; letter-spacing: 0.05em;">TBD</div>
+        </div>
+        <div class="sched-grid" style="display: grid; grid-template-columns: 160px 1fr 160px; align-items: center; padding: 18px 20px; background: rgba(255,255,255,0.06);">
+          <div style="font-family: 'Archivo Black', sans-serif; color: #F26722; font-size: 14px;">NOV 14</div>
+          <div style="color: white; font-weight: 700; font-size: 16px;">Meet 1</div>
+          <div style="color: rgba(255,255,255,0.4); font-size: 13px; font-weight: 700; letter-spacing: 0.05em;">TBD</div>
+        </div>
+        <div class="sched-grid" style="display: grid; grid-template-columns: 160px 1fr 160px; align-items: center; padding: 18px 20px;">
+          <div style="font-family: 'Archivo Black', sans-serif; color: #F26722; font-size: 14px;">DEC 5</div>
+          <div style="color: white; font-weight: 700; font-size: 16px;">Meet 2</div>
+          <div style="color: rgba(255,255,255,0.4); font-size: 13px; font-weight: 700; letter-spacing: 0.05em;">TBD</div>
+        </div>
+        <div class="sched-grid" style="display: grid; grid-template-columns: 160px 1fr 160px; align-items: center; padding: 18px 20px; background: rgba(255,255,255,0.06);">
+          <div style="font-family: 'Archivo Black', sans-serif; color: #F26722; font-size: 14px;">JAN 9/16</div>
+          <div style="color: white; font-weight: 700; font-size: 16px;">Meet 3</div>
+          <div style="color: rgba(255,255,255,0.4); font-size: 13px; font-weight: 700; letter-spacing: 0.05em;">TBD</div>
+        </div>
+        <div class="sched-grid" style="display: grid; grid-template-columns: 160px 1fr 160px; align-items: center; padding: 18px 20px;">
+          <div style="font-family: 'Archivo Black', sans-serif; color: #F26722; font-size: 14px;">JAN 30</div>
+          <div style="color: white; font-weight: 700; font-size: 16px;">League Judging Interviews</div>
+          <div style="color: rgba(255,255,255,0.6); font-size: 13px;">Via Zoom</div>
+        </div>
+        <div class="sched-grid" style="display: grid; grid-template-columns: 160px 1fr 160px; align-items: center; padding: 18px 20px; background: rgba(255,255,255,0.06);">
+          <div style="font-family: 'Archivo Black', sans-serif; color: #F26722; font-size: 14px;">FEB 13</div>
+          <div style="color: white; font-weight: 700; font-size: 16px;">League Championship</div>
+          <div style="color: rgba(255,255,255,0.4); font-size: 13px; font-weight: 700; letter-spacing: 0.05em;">TBD</div>
+        </div>
+
+      </div>
+      <p style="color: rgba(255,255,255,0.4); font-size: 12px; margin-top: 20px;">Dates and locations subject to change — updates will be posted above.</p>
+    </div>
+  </section>
+
+  <section id="contact" style="padding: 70px 0; background: #F7EFDE;">
+    <div class="wrap" style="display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap;">
+      <div>
+        <div style="font-family: 'Archivo Black', sans-serif; font-size: 12px; letter-spacing: 0.1em; color: #C4531A; margin-bottom: 6px;">GET IN TOUCH</div>
+        <h2 style="font-family: 'Archivo Black', sans-serif; font-size: 30px; margin: 0 0 8px;">QUESTIONS ABOUT THE LEAGUE?</h2>
+        <p style="opacity: 0.7; max-width: 48ch; margin: 0; font-size: 15px;">Reach the SWFL Robotics League organizers directly — we're happy to help.</p>
+      </div>
+      <a href="mailto:SWFLrobotic@gmail.com" style="background: #F26722; color: #0B2545; font-family: 'Archivo Black', sans-serif; font-size: 15px; padding: 16px 32px; clip-path: polygon(0 0, 100% 0, 94% 100%, 0% 100%);">EMAIL SWFLROBOTIC@GMAIL.COM</a>
+    </div>
+  </section>
+
+  <section id="donate" style="padding: 70px 0; background: #0E7C7B;">
+    <div class="wrap" style="display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap;">
+      <div>
+        <div style="font-family: 'Archivo Black', sans-serif; font-size: 12px; letter-spacing: 0.1em; color: #F7EFDE; margin-bottom: 6px;">SUPPORT THE LEAGUE</div>
+        <h2 style="font-family: 'Archivo Black', sans-serif; font-size: 30px; color: white; margin: 0 0 8px;">HELP US GROW SWFL ROBOTICS</h2>
+        <p style="opacity: 0.85; max-width: 48ch; margin: 0; font-size: 15px; color: white;">Donations from the community help cover field kits, venues, and awards for our teams. Every contribution helps a new team join FIRST Tech Challenge.</p>
+      </div>
+      <a href="#" style="background: #F26722; color: #0B2545; font-family: 'Archivo Black', sans-serif; font-size: 15px; padding: 16px 32px; clip-path: polygon(0 0, 100% 0, 94% 100%, 0% 100%);">DONATE NOW</a>
+    </div>
+  </section>
+
+  <footer style="background: #0B2545; padding: 28px 0;">
+    <div class="wrap" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+      <p style="color: rgba(255,255,255,0.5); font-size: 12px; margin: 0;">© 2026 SWFL Robotics, Inc. — organizer of the SWFL Robotics League</p>
+      <p style="color: rgba(255,255,255,0.5); font-size: 12px; margin: 0;">A FIRST Tech Challenge league</p>
+    </div>
+  </footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;leagueLogoSize&quot;: {&quot;editor&quot;: &quot;range&quot;, &quot;default&quot;: 240, &quot;min&quot;: 100, &quot;max&quot;: 320, &quot;step&quot;: 8, &quot;unit&quot;: &quot;px&quot;, &quot;tsType&quot;: &quot;number&quot;, &quot;section&quot;: &quot;Header logos&quot;}, &quot;ftcLogoWidth&quot;: {&quot;editor&quot;: &quot;range&quot;, &quot;default&quot;: 176, &quot;min&quot;: 100, &quot;max&quot;: 320, &quot;step&quot;: 8, &quot;unit&quot;: &quot;px&quot;, &quot;tsType&quot;: &quot;number&quot;, &quot;section&quot;: &quot;Header logos&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const leagueLogoSize = this.props.leagueLogoSize ?? 240;
+    const ftcLogoWidth = this.props.ftcLogoWidth ?? 176;
+    return {
+      leagueLogoSize,
+      ftcLogoWidth,
+      ftcLogoHeight: Math.round(ftcLogoWidth / 3.826),
+    };
+  }
+}
+</script>
+</body>
+</html>

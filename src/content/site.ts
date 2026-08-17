@@ -4,7 +4,7 @@ export const site = {
   /** Canonical origin, used to resolve metadata and link-preview URLs. */
   url: "https://swflrobotics.org",
   season: "2026–2027 Season",
-  email: "SWFLrobotic@gmail.com",
+  email: "SWFLrobotics@gmail.com",
   // Swap in the real donation link when it exists; "#" renders the button as disabled.
   donateUrl: "#",
   description:

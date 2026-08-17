@@ -1,5 +1,5 @@
+import { CopyEmailButton } from "@/components/copy-email-button";
 import { Wrap } from "@/components/wrap";
-import { site } from "@/content/site";
 
 export function Contact() {
   return (
@@ -17,12 +17,7 @@ export function Contact() {
           </p>
         </div>
 
-        <a
-          href={`mailto:${site.email}`}
-          className="clip-slant bg-orange px-8 py-4 pr-10 font-display text-sm uppercase text-navy transition-opacity hover:opacity-90 sm:text-[15px]"
-        >
-          Email {site.email}
-        </a>
+        <CopyEmailButton />
       </Wrap>
     </section>
   );

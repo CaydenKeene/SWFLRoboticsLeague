@@ -20,8 +20,10 @@ no database, API route, or CMS.
 - `src/app/page.tsx` — composes the five anchor sections in order
 - `src/components/sections/` — one component per page section (`hero`, `updates`,
   `schedule`, `contact`, `donate`)
-- `src/components/site-header.tsx` — sticky header; the only client component
+- `src/components/site-header.tsx` — sticky header; client component
   (`"use client"` for the mobile menu toggle)
+- `src/components/copy-email-button.tsx` — client component; copies `site.email` to the
+  clipboard for the contact section, which stays a server component
 - `src/components/wrap.tsx` — shared 1120px page gutter used by every section
 - `src/content/` — all copy and season data
 - `public/` — league logo (temporary) and the official FTC mark

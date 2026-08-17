@@ -31,3 +31,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# internal ops notes — kept local, this repo is public
+/STRIPE-SETUP.md

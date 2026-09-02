@@ -37,8 +37,8 @@ existing kind should be a data entry, not new markup.
 Three conventions the components depend on:
 
 - `ScheduleEvent.location === null` renders **TBD**
-- A `ScheduleEvent` with neither `mapUrl` nor `info` renders **TBD** in the Map & Info
-  column; `mapUrl` points at a PDF in `public/maps/`
+- A `ScheduleEvent` with no `flyerUrl`, `mapUrl` or `info` renders **TBD** in the
+  Map & Info column; the two URL fields point at PDFs in `public/docs/`
 - `site.donateUrl === "#"` renders a non-clickable placeholder instead of the donate button
 
 ### Styling Conventions

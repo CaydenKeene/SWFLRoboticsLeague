@@ -1,4 +1,4 @@
-import { Map } from "lucide-react";
+import { FileText, Map } from "lucide-react";
 import { Wrap } from "@/components/wrap";
 import { schedule, scheduleNote, type ScheduleEvent } from "@/content/schedule";
 import { site } from "@/content/site";
@@ -56,11 +56,11 @@ export function Schedule() {
 }
 
 /**
- * Venue map and note for one event. These land one venue at a time as the season
- * goes on, so a row with neither falls back to TBD rather than sitting blank.
+ * Documents and notes for one event. These land one event at a time as the season
+ * goes on, so a row with none of them falls back to TBD rather than sitting blank.
  */
 function MapAndInfo({ event }: { event: ScheduleEvent }) {
-  if (!event.mapUrl && !event.info) {
+  if (!event.flyerUrl && !event.mapUrl && !event.info) {
     return (
       <div className="text-[13px] font-bold uppercase tracking-[0.05em] text-white/40">
         TBD
@@ -70,18 +70,39 @@ function MapAndInfo({ event }: { event: ScheduleEvent }) {
 
   return (
     <div className="flex flex-col items-start gap-1">
+      {event.flyerUrl && (
+        <DocLink href={event.flyerUrl} icon={FileText}>
+          Event Flyer (PDF)
+        </DocLink>
+      )}
       {event.mapUrl && (
-        <a
-          href={event.mapUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-1.5 text-[13px] font-bold text-orange underline-offset-4 hover:underline"
-        >
-          <Map className="h-3.5 w-3.5 flex-none" aria-hidden />
+        <DocLink href={event.mapUrl} icon={Map}>
           Venue Map (PDF)
-        </a>
+        </DocLink>
       )}
       {event.info && <p className="text-[13px] text-white/60">{event.info}</p>}
     </div>
+  );
+}
+
+function DocLink({
+  href,
+  icon: Icon,
+  children,
+}: {
+  href: string;
+  icon: typeof Map;
+  children: React.ReactNode;
+}) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex items-center gap-1.5 text-[13px] font-bold text-orange underline-offset-4 hover:underline"
+    >
+      <Icon className="h-3.5 w-3.5 flex-none" aria-hidden />
+      {children}
+    </a>
   );
 }

@@ -5,8 +5,13 @@ export type ScheduleEvent = {
   /** Venue name, or null while the location is still being worked out. */
   location: string | null;
   /**
-   * Venue map PDF served from /public, e.g. "/maps/charlotte-hs.pdf".
-   * Omit until the venue sends one — the row renders a placeholder instead.
+   * Event flyer PDF served from /public, e.g. "/docs/kickoff-flyer.pdf".
+   * Omit until there's a flyer for the event.
+   */
+  flyerUrl?: string;
+  /**
+   * Venue map PDF served from /public, e.g. "/docs/charlotte-hs-map.pdf".
+   * Omit until the venue sends one — a row with nothing at all renders TBD.
    */
   mapUrl?: string;
   /** One-line venue note: parking, entrance, pit access. Omit when there's nothing to say. */
@@ -14,7 +19,12 @@ export type ScheduleEvent = {
 };
 
 export const schedule: ScheduleEvent[] = [
-  { date: "Sep 12", title: "Kickoff Event", location: "Charlotte HS" },
+  {
+    date: "Sep 12",
+    title: "Kickoff Event",
+    location: "Charlotte HS",
+    flyerUrl: "/docs/kickoff-flyer.pdf",
+  },
   { date: "Oct 17 or 24", title: "Scrimmage", location: null },
   { date: "Nov 14", title: "Meet 1", location: null },
   { date: "Dec 5", title: "Meet 2", location: null },

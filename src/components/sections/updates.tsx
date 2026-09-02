@@ -33,6 +33,11 @@ export function Updates() {
                     {update.tag}
                   </span>
                 )}
+                {update.emailNumber && (
+                  <span className="font-display text-[11px] uppercase tracking-[0.08em] text-rust">
+                    League Email #{update.emailNumber}
+                  </span>
+                )}
                 <span className="text-xs font-semibold uppercase text-navy/50">
                   {update.date}
                 </span>

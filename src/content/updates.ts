@@ -10,6 +10,8 @@ export type Update = {
   title: string;
   /** Optional status pill shown next to the date, e.g. "Coming Soon". */
   tag?: string;
+  /** Position in the league email series; omit for announcements that aren't emails. */
+  emailNumber?: number;
   summary: string;
   /** Numbered detail blocks; omit for short announcements. */
   sections?: UpdateSection[];
@@ -27,6 +29,7 @@ export const updates: Update[] = [
   },
   {
     id: "league-email-2",
+    emailNumber: 2,
     date: "August 2026",
     title: "20 Days to Kickoff",
     summary:
@@ -72,6 +75,7 @@ export const updates: Update[] = [
   },
   {
     id: "welcome-2026",
+    emailNumber: 1,
     date: "July 2026",
     title: "Welcome to the SWFL Robotics FTC League",
     summary:

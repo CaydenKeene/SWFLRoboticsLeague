@@ -46,7 +46,7 @@ export function Hero() {
             {hero.story.eyebrow}
           </div>
           <h2 className="mb-3 font-display text-xl uppercase">{hero.story.heading}</h2>
-          <p className="text-sm italic leading-relaxed text-navy/60">{hero.story.body}</p>
+          <p className="text-sm italic leading-relaxed text-navy/85">{hero.story.body}</p>
         </div>
       </Wrap>
     </section>

@@ -54,6 +54,8 @@ export function DonateDialog() {
     setStatus("sending");
 
     const fields = new FormData(event.currentTarget);
+    // An untouched Notes box would otherwise arrive as an empty row in the email.
+    if (!String(fields.get(NOTES) ?? "").trim()) fields.delete(NOTES);
     fields.set("access_key", donate.web3formsKey);
     fields.set("from_name", site.name);
     fields.set("subject", `Check donation coming — ${fields.get("name")}`);

@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { Wrap } from "@/components/wrap";
-import { navItems } from "@/content/site";
+import { navItems, site } from "@/content/site";
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
@@ -28,11 +28,16 @@ export function SiteHeader() {
               <br />
               League
             </span>
-            <span className="mt-1 block text-[10px] font-semibold uppercase leading-tight tracking-wide text-orange sm:text-[11px]">
-              Logo design contest
-              <br />
-              coming soon
-            </span>
+            {site.logoNote && (
+              <span className="mt-1 block text-[10px] font-semibold uppercase leading-tight tracking-wide text-orange sm:text-[11px]">
+                {site.logoNote.map((line, i) => (
+                  <span key={line}>
+                    {i > 0 && <br />}
+                    {line}
+                  </span>
+                ))}
+              </span>
+            )}
           </span>
         </a>
 

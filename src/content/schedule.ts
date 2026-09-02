@@ -10,6 +10,11 @@ export type ScheduleEvent = {
    */
   flyerUrl?: string;
   /**
+   * Link text for the flyer, so each event's link names that event once several
+   * are listed. Defaults to `"<title> Flyer"`; set it where that reads awkwardly.
+   */
+  flyerLabel?: string;
+  /**
    * Venue map PDF served from /public, e.g. "/docs/charlotte-hs-map.pdf".
    * Omit until the venue sends one — a row with nothing at all renders TBD.
    */
@@ -24,6 +29,7 @@ export const schedule: ScheduleEvent[] = [
     title: "Kickoff Event",
     location: "Charlotte HS",
     flyerUrl: "/docs/kickoff-flyer.pdf",
+    flyerLabel: "Kickoff Flyer",
   },
   { date: "Oct 17 or 24", title: "Scrimmage", location: null },
   { date: "Nov 14", title: "Meet 1", location: null },

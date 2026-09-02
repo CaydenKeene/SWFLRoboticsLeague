@@ -72,7 +72,7 @@ function EventDocs({ event }: { event: ScheduleEvent }) {
     <div className="flex flex-col items-start gap-1">
       {event.flyerUrl && (
         <DocLink href={event.flyerUrl} icon={FileText}>
-          Event Flyer (PDF)
+          {event.flyerLabel ?? `${event.title} Flyer`} (PDF)
         </DocLink>
       )}
       {event.mapUrl && (

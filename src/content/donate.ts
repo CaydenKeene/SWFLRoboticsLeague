@@ -51,6 +51,18 @@ export const donate = {
     submitLabel: "Get the mailing address",
   },
 
+  /**
+   * Notification email metadata. Both of these override the Sender Name and
+   * Email Subject configured in the Web3Forms dashboard, so change them here
+   * rather than there.
+   */
+  email: {
+    /** Sender name; the donor's name is appended after a colon. */
+    senderPrefix: "Donation",
+    /** Subject line; the donor's name is appended after an em dash. */
+    subjectPrefix: "Check donation coming",
+  },
+
   /** Who to make the check out to — the legal entity, not the league's display name. */
   payableTo: site.organization,
   /** Street lines only; `payableTo` renders above them as the first line. */

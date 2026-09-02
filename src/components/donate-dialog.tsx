@@ -69,16 +69,18 @@ export function DonateDialog() {
     }
     // An untouched Notes box would otherwise arrive as an empty row in the email.
     if (!String(fields.get(NOTES) ?? "").trim()) fields.delete(NOTES);
+    const donor = String(fields.get("name") ?? "").trim();
     fields.set("access_key", donate.web3formsKey);
-    fields.set("from_name", site.name);
-    fields.set("subject", `Check donation coming — ${fields.get("name")}`);
+    // Sender and subject split the work: who gave, then what the notice is about.
+    fields.set("from_name", `${donate.email.senderPrefix}: ${donor}`);
+    fields.set("subject", `${donate.email.subjectPrefix} — ${donor}`);
 
     try {
       const response = await fetch(WEB3FORMS_ENDPOINT, { method: "POST", body: fields });
       const result = await response.json();
       if (!result.success) throw new Error(result.message);
 
-      setDonorName(String(fields.get("name") ?? ""));
+      setDonorName(donor);
       setMemo(String(fields.get(DESIGNATION) ?? ""));
       setStep("sent");
     } catch {

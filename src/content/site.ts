@@ -19,7 +19,7 @@ export const site = {
    * Build credit shown in the footer. Set to null to drop the line entirely.
    */
   credit: {
-    prefix: "Site built by",
+    prefix: "Website built by",
     name: "Cayden Keene",
     url: "https://caydenk.dev/",
   } as { prefix: string; name: string; url: string } | null,

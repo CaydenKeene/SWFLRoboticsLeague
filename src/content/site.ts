@@ -32,6 +32,16 @@ export const hero = {
     "We're a brand-new FIRST Tech Challenge league serving Southwest Florida, organized by SWFL Robotics, Inc. This page is home base for our teams — season updates, meet dates, and everything in between.",
     "Whether you're a coach, a student, or a parent, you're in the right place. Bookmark this page — we'll keep it current all season.",
   ],
+  /**
+   * Official season mark, shown above the story card. Set to null between seasons
+   * and the hero renders nothing in its place.
+   */
+  seasonLogo: {
+    src: "/first_biobuzz_logo.png",
+    alt: "BIOBUZZ presented by RTX — the 2026–2027 FIRST Tech Challenge season",
+    width: 900,
+    height: 639,
+  } as { src: string; alt: string; width: number; height: number } | null,
   story: {
     eyebrow: "Our Story",
     heading: "How This League Started",

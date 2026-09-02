@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Wrap } from "@/components/wrap";
 import { hero } from "@/content/site";
 
@@ -41,12 +42,25 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="clip-notch bg-white p-7">
-          <div className="mb-2 font-display text-[11px] uppercase tracking-[0.1em] text-rust">
-            {hero.story.eyebrow}
+        <div>
+          {hero.seasonLogo && (
+            <Image
+              src={hero.seasonLogo.src}
+              alt={hero.seasonLogo.alt}
+              width={hero.seasonLogo.width}
+              height={hero.seasonLogo.height}
+              priority
+              className="mb-5 h-auto w-[min(15rem,100%)]"
+            />
+          )}
+
+          <div className="clip-notch bg-white p-7">
+            <div className="mb-2 font-display text-[11px] uppercase tracking-[0.1em] text-rust">
+              {hero.story.eyebrow}
+            </div>
+            <h2 className="mb-3 font-display text-xl uppercase">{hero.story.heading}</h2>
+            <p className="text-sm italic leading-relaxed text-navy/85">{hero.story.body}</p>
           </div>
-          <h2 className="mb-3 font-display text-xl uppercase">{hero.story.heading}</h2>
-          <p className="text-sm italic leading-relaxed text-navy/85">{hero.story.body}</p>
         </div>
       </Wrap>
     </section>

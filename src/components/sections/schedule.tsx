@@ -4,7 +4,7 @@ import { schedule, scheduleNote, type ScheduleEvent } from "@/content/schedule";
 import { site } from "@/content/site";
 
 /** Column widths are shared by the header and every row so they stay aligned. */
-const ROW_GRID = "sm:grid-cols-[130px_1fr_150px_190px]";
+const ROW_GRID = "sm:grid-cols-[115px_1fr_240px_175px]";
 
 export function Schedule() {
   return (
@@ -38,7 +38,12 @@ export function Schedule() {
               <div className="font-display text-sm uppercase text-orange">{event.date}</div>
               <div className="font-bold text-white sm:text-base">{event.title}</div>
               {event.location ? (
-                <div className="text-[13px] text-white/60">{event.location}</div>
+                <div className="text-[13px] leading-snug text-white/60">
+                  {event.location}
+                  {event.address && (
+                    <span className="block text-white/40">{event.address}</span>
+                  )}
+                </div>
               ) : (
                 <div className="text-[13px] font-bold uppercase tracking-[0.05em] text-white/40">
                   TBD

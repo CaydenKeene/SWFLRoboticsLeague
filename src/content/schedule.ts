@@ -5,6 +5,11 @@ export type ScheduleEvent = {
   /** Venue name, or null while the location is still being worked out. */
   location: string | null;
   /**
+   * Street address, shown under the venue name. Omit for venues that don't have
+   * one yet and for events that aren't held anywhere physical.
+   */
+  address?: string;
+  /**
    * Event flyer PDF served from /public, e.g. "/docs/kickoff-flyer.pdf".
    * Omit until there's a flyer for the event.
    */
@@ -27,7 +32,8 @@ export const schedule: ScheduleEvent[] = [
   {
     date: "Sep 12",
     title: "Kickoff Event",
-    location: "Charlotte HS",
+    location: "Charlotte Performing Arts Center",
+    address: "701 Carmalita St, Punta Gorda, FL 33950",
     flyerUrl: "/docs/kickoff-flyer.pdf",
     flyerLabel: "Kickoff Flyer",
   },

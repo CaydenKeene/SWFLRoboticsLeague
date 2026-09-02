@@ -39,6 +39,8 @@ Three conventions the components depend on:
 - `ScheduleEvent.location === null` renders **TBD**
 - A `ScheduleEvent` with no `flyerUrl`, `mapUrl` or `info` renders **TBD** in the
   Flyer column; the two URL fields point at PDFs in `public/docs/`
+- An `Update` with a `flyerUrl` renders a PDF link under its summary — same
+  `public/docs/` convention, but omitting it renders nothing rather than TBD
 - `site.donateUrl === "#"` renders a non-clickable placeholder instead of the donate button
 
 ### Styling Conventions

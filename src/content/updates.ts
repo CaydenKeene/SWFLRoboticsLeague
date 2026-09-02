@@ -13,6 +13,16 @@ export type Update = {
   /** Position in the league email series; omit for announcements that aren't emails. */
   emailNumber?: number;
   summary: string;
+  /**
+   * Flyer PDF served from /public, e.g. "/docs/logo-contest-flyer.pdf".
+   * Omit until the flyer exists — nothing renders in its place.
+   */
+  flyerUrl?: string;
+  /**
+   * Link text for the flyer, so it names what the reader is opening.
+   * Defaults to `"<title> Flyer"`; set it where that reads awkwardly.
+   */
+  flyerLabel?: string;
   /** Numbered detail blocks; omit for short announcements. */
   sections?: UpdateSection[];
 };

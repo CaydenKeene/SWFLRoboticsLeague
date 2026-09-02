@@ -5,8 +5,9 @@ export const site = {
   url: "https://swflrobotics.org",
   season: "2026–2027 Season",
   email: "SWFLrobotics@gmail.com",
-  // Swap in the real donation link when it exists; "#" renders the button as disabled.
-  donateUrl: "#",
+  // Stripe payment link. "#" hides the card option in the donate popup, leaving
+  // only the mail-a-check path.
+  donateUrl: "https://donate.stripe.com/28E3cvdsR2QIapW7697ok01" as string,
   description:
     "Home base for the SWFL Robotics FIRST Tech Challenge league — season updates, meet dates, and everything in between.",
   /**

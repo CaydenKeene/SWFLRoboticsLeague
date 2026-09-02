@@ -1,11 +1,7 @@
+import { DonateDialog } from "@/components/donate-dialog";
 import { Wrap } from "@/components/wrap";
-import { site } from "@/content/site";
 
 export function Donate() {
-  // Until a real donation URL is set in src/content/site.ts, show a non-clickable
-  // placeholder rather than a button that goes nowhere.
-  const hasLink = site.donateUrl !== "#";
-
   return (
     <section id="donate" className="bg-teal py-14 sm:py-[70px]">
       <Wrap className="flex flex-wrap items-center justify-between gap-8">
@@ -22,18 +18,7 @@ export function Donate() {
           </p>
         </div>
 
-        {hasLink ? (
-          <a
-            href={site.donateUrl}
-            className="clip-slant bg-orange px-8 py-4 pr-10 font-display text-sm uppercase text-navy transition-opacity hover:opacity-90 sm:text-[15px]"
-          >
-            Donate Now
-          </a>
-        ) : (
-          <span className="clip-slant bg-white/20 px-8 py-4 pr-10 font-display text-sm uppercase text-white/70 sm:text-[15px]">
-            Donation Link Coming Soon
-          </span>
-        )}
+        <DonateDialog />
       </Wrap>
     </section>
   );

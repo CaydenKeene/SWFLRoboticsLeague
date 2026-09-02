@@ -24,8 +24,12 @@ no database, API route, or CMS.
   (`"use client"` for the mobile menu toggle)
 - `src/components/copy-email-button.tsx` — client component; copies `site.email` to the
   clipboard for the contact section, which stays a server component
+- `src/components/donate-dialog.tsx` — client component; the donation popup, built on a
+  native `<dialog>` so Esc, focus trapping and the backdrop come from the platform.
+  Keeps the donate section a server component, same split as the contact section
 - `src/components/wrap.tsx` — shared 1120px page gutter used by every section
-- `src/content/` — all copy and season data
+- `src/content/` — all copy and season data; `donate.ts` holds the popup copy, the
+  designation choices, and the check mailing address
 - `public/` — league logo (temporary) and the official FTC mark
 
 ### Content Convention
@@ -34,14 +38,17 @@ no database, API route, or CMS.
 `src/content/*.ts` as typed data; section components only render it. New content of an
 existing kind should be a data entry, not new markup.
 
-Three conventions the components depend on:
+Conventions the components depend on:
 
 - `ScheduleEvent.location === null` renders **TBD**
 - A `ScheduleEvent` with no `flyerUrl`, `mapUrl` or `info` renders **TBD** in the
   Flyer column; the two URL fields point at PDFs in `public/docs/`
 - An `Update` with a `flyerUrl` renders a PDF link under its summary — same
   `public/docs/` convention, but omitting it renders nothing rather than TBD
-- `site.donateUrl === "#"` renders a non-clickable placeholder instead of the donate button
+- `site.donateUrl === "#"` hides the card option in the donate popup, leaving only the
+  mail-a-check path
+- `donate.web3formsKey === ""` skips the check form and shows the mailing address
+  directly — there is nowhere to deliver a submission until a key is set
 
 ### Styling Conventions
 

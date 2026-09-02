@@ -57,13 +57,13 @@ export function Schedule() {
 
 /**
  * Venue map and note for one event. These land one venue at a time as the season
- * goes on, so a row with neither says when to expect them rather than sitting blank.
+ * goes on, so a row with neither falls back to TBD rather than sitting blank.
  */
 function MapAndInfo({ event }: { event: ScheduleEvent }) {
   if (!event.mapUrl && !event.info) {
     return (
       <div className="text-[13px] font-bold uppercase tracking-[0.05em] text-white/40">
-        Posted Closer to Event
+        TBD
       </div>
     );
   }

@@ -5,7 +5,7 @@ export type UpdateSection = {
 
 export type Update = {
   id: string;
-  /** Display date, e.g. "August 2026". */
+  /** Display date — the day an email was sent, e.g. "August 23, 2026". */
   date: string;
   title: string;
   /** Optional status pill shown next to the date, e.g. "Coming Soon". */
@@ -30,7 +30,7 @@ export const updates: Update[] = [
   {
     id: "league-email-2",
     emailNumber: 2,
-    date: "August 2026",
+    date: "August 23, 2026",
     title: "20 Days to Kickoff",
     summary:
       "Only 20 days to go until the new season is unveiled! This is our 2nd league-wide email of the 2026–27 season. Please share it with all of your teams and parents.",
@@ -76,7 +76,7 @@ export const updates: Update[] = [
   {
     id: "welcome-2026",
     emailNumber: 1,
-    date: "July 2026",
+    date: "July 30, 2026",
     title: "Welcome to the SWFL Robotics FTC League",
     summary:
       "Happy Summer everyone, and welcome to the SWFL Robotics FTC League! This is our first league-wide email of the 2026–27 season. Apologies in advance for its length…",

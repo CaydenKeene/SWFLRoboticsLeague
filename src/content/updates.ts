@@ -31,11 +31,13 @@ export type Update = {
 export const updates: Update[] = [
   {
     id: "logo-contest",
-    date: "August 2026",
+    date: "September 1, 2026",
     title: "Team Logo Design Contest",
-    tag: "Coming Soon",
+    tag: "Now Open",
     summary:
-      "Coming soon — details on how your team can submit a design for the league logo.",
+      "Our new league needs a logo, and any registered SWFL Robotics team can design it. The winning team takes home a goBILDA FTC Starter Kit donated by Charlotte High School. Submissions are due September 21 — the flyer has the full rules, the file requirements, and where to send your entry.",
+    flyerUrl: "/docs/logo-contest-flyer.pdf",
+    flyerLabel: "Contest Rules & How to Enter",
   },
   {
     id: "league-email-2",

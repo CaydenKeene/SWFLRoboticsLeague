@@ -24,7 +24,7 @@ export function Schedule() {
           <div>Date</div>
           <div>Event</div>
           <div>Location</div>
-          <div>Map &amp; Info</div>
+          <div>Flyer</div>
         </div>
 
         <div className="flex flex-col gap-0.5">
@@ -44,7 +44,7 @@ export function Schedule() {
                   TBD
                 </div>
               )}
-              <MapAndInfo event={event} />
+              <EventDocs event={event} />
             </div>
           ))}
         </div>
@@ -59,7 +59,7 @@ export function Schedule() {
  * Documents and notes for one event. These land one event at a time as the season
  * goes on, so a row with none of them falls back to TBD rather than sitting blank.
  */
-function MapAndInfo({ event }: { event: ScheduleEvent }) {
+function EventDocs({ event }: { event: ScheduleEvent }) {
   if (!event.flyerUrl && !event.mapUrl && !event.info) {
     return (
       <div className="text-[13px] font-bold uppercase tracking-[0.05em] text-white/40">

@@ -54,6 +54,19 @@ export function DonateDialog() {
     setStatus("sending");
 
     const fields = new FormData(event.currentTarget);
+    // The number input submits a bare "250"; the league reads this as money.
+    // Whole dollars stay whole — only a cents value grows the two decimals.
+    const amount = Number(fields.get(AMOUNT));
+    if (amount > 0) {
+      fields.set(
+        AMOUNT,
+        amount.toLocaleString("en-US", {
+          style: "currency",
+          currency: "USD",
+          minimumFractionDigits: Number.isInteger(amount) ? 0 : 2,
+        }),
+      );
+    }
     // An untouched Notes box would otherwise arrive as an empty row in the email.
     if (!String(fields.get(NOTES) ?? "").trim()) fields.delete(NOTES);
     fields.set("access_key", donate.web3formsKey);

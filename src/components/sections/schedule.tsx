@@ -56,14 +56,14 @@ export function Schedule() {
 }
 
 /**
- * Venue map and note for one event. Both arrive late — venues send maps once the
- * booking is confirmed — so a row with neither says so rather than sitting blank.
+ * Venue map and note for one event. These land one venue at a time as the season
+ * goes on, so a row with neither says when to expect them rather than sitting blank.
  */
 function MapAndInfo({ event }: { event: ScheduleEvent }) {
   if (!event.mapUrl && !event.info) {
     return (
       <div className="text-[13px] font-bold uppercase tracking-[0.05em] text-white/40">
-        Coming Soon
+        Posted Closer to Event
       </div>
     );
   }

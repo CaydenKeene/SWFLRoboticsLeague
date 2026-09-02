@@ -1,4 +1,5 @@
 import { FileText, Map } from "lucide-react";
+import { MapLink } from "@/components/map-link";
 import { Wrap } from "@/components/wrap";
 import { schedule, scheduleNote, type ScheduleEvent } from "@/content/schedule";
 import { site } from "@/content/site";
@@ -41,7 +42,12 @@ export function Schedule() {
                 <div className="text-[13px] leading-snug text-white/60">
                   {event.location}
                   {event.address && (
-                    <span className="block text-white/40">{event.address}</span>
+                    <MapLink
+                      query={`${event.location}, ${event.address}`}
+                      className="mt-0.5 block text-white/40 underline decoration-white/20 underline-offset-2 hover:text-white/70 hover:decoration-white/50"
+                    >
+                      {event.address}
+                    </MapLink>
                   )}
                 </div>
               ) : (

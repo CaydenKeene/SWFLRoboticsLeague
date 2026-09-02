@@ -4,6 +4,13 @@ export type ScheduleEvent = {
   title: string;
   /** Venue name, or null while the location is still being worked out. */
   location: string | null;
+  /**
+   * Venue map PDF served from /public, e.g. "/maps/charlotte-hs.pdf".
+   * Omit until the venue sends one — the row renders a placeholder instead.
+   */
+  mapUrl?: string;
+  /** One-line venue note: parking, entrance, pit access. Omit when there's nothing to say. */
+  info?: string;
 };
 
 export const schedule: ScheduleEvent[] = [

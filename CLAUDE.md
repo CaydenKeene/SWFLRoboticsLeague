@@ -34,9 +34,11 @@ no database, API route, or CMS.
 `src/content/*.ts` as typed data; section components only render it. New content of an
 existing kind should be a data entry, not new markup.
 
-Two conventions the components depend on:
+Three conventions the components depend on:
 
 - `ScheduleEvent.location === null` renders **TBD**
+- A `ScheduleEvent` with neither `mapUrl` nor `info` renders **Coming Soon** in the
+  Map & Info column; `mapUrl` points at a PDF in `public/maps/`
 - `site.donateUrl === "#"` renders a non-clickable placeholder instead of the donate button
 
 ### Styling Conventions

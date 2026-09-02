@@ -16,7 +16,7 @@ export const donate = {
    * An empty string skips the form entirely: the check option shows the mailing
    * address directly rather than collecting details it can't deliver.
    */
-  web3formsKey: "" as string,
+  web3formsKey: "7d48ffaf-095a-49f3-bb31-c8f6fc107375" as string,
 
   intro:
     "Thank you for your interest in donating to SWFL Robotics, Inc. Every gift goes toward field kits, venues, and awards for our teams. Choose how you'd like to give.",

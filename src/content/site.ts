@@ -15,6 +15,14 @@ export const site = {
    * Set to null once the league has its real mark and the note is moot.
    */
   logoNote: ["Logo design contest", "now open"] as readonly string[] | null,
+  /**
+   * Build credit shown in the footer. Set to null to drop the line entirely.
+   */
+  credit: {
+    prefix: "Site built by",
+    name: "Cayden Keene",
+    url: "https://caydenk.dev/",
+  } as { prefix: string; name: string; url: string } | null,
 } as const;
 
 export const navItems = [

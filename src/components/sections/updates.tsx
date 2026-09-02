@@ -34,7 +34,7 @@ export function Updates() {
                   </span>
                 )}
                 {update.emailNumber && (
-                  <span className="font-display text-[11px] uppercase tracking-[0.08em] text-rust">
+                  <span className="font-display text-lg uppercase text-rust">
                     League Email #{update.emailNumber}
                   </span>
                 )}

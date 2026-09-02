@@ -1,5 +1,9 @@
+import { UpdateDetails } from "@/components/update-details";
 import { Wrap } from "@/components/wrap";
 import { updates } from "@/content/updates";
+
+// Only the newest full email is expanded on load; the rest collapse behind their toggle.
+const newestFullMessageId = updates.find((update) => update.sections)?.id;
 
 export function Updates() {
   return (
@@ -41,18 +45,11 @@ export function Updates() {
               </p>
 
               {update.sections && (
-                <ol className="mt-3.5 flex flex-col gap-3.5">
-                  {update.sections.map((section, i) => (
-                    <li key={section.heading}>
-                      <p className="mb-1 text-[13px] font-extrabold text-navy">
-                        {i + 1}. {section.heading}
-                      </p>
-                      <p className="max-w-[70ch] text-sm leading-relaxed text-navy/75">
-                        {section.body}
-                      </p>
-                    </li>
-                  ))}
-                </ol>
+                <UpdateDetails
+                  id={update.id}
+                  sections={update.sections}
+                  defaultOpen={update.id === newestFullMessageId}
+                />
               )}
             </article>
           ))}

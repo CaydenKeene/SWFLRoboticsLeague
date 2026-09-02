@@ -26,6 +26,51 @@ export const updates: Update[] = [
       "Coming soon — details on how your team can submit a design for the league logo.",
   },
   {
+    id: "league-email-2",
+    date: "August 2026",
+    title: "20 Days to Kickoff",
+    summary:
+      "Only 20 days to go until the new season is unveiled! This is our 2nd league-wide email of the 2026–27 season. Please share it with all of your teams and parents.",
+    sections: [
+      {
+        heading: "New League Website",
+        body: "We have a new league website — the one you're reading right now. Please bookmark it. My plan is to post these emails here for easy reference and to keep the current schedule up to date. Once all the locations for each event are finalized, the events will also appear inside Region Manager, allowing teams to sign up for each one. That isn't important for the kickoff event, but after that it becomes important, as it filters which teams are event ready and which are not yet ready (more on that later).",
+      },
+      {
+        heading: "Kick Off Event — We Will Have the New Game Elements!",
+        body: "We WILL have a set of the current game elements at our Kick Off Event. This will be the first time for everyone to get an up-close view of the new game. Our kickoff will be held at Charlotte High School in Punta Gorda. Doors open at 10:00 am with a program start time of 10:30 am. We will have an opportunity for teams to give short presentations and then tune into the state kickoff broadcast for the national game reveal. Thanks to Bente Brauer for handling the game elements. Address: Charlotte Performing Arts Center, 701 Carmalita St., Punta Gorda, FL.",
+      },
+      {
+        heading: "Call for Presentations",
+        body: "Teams that wish to give a presentation at the kickoff event, please let me know by sending an email with your team member's topic and how much time you think they might need. I will select as many as I think will fit into our available time.",
+      },
+      {
+        heading: "League Logo Contest",
+        body: "With our new league, we need to have a new league logo. This was done successfully in the Gulf Coast FTC League a few years ago. I will make this announcement again at the kickoff.",
+      },
+      {
+        heading: "Preliminary League Schedule",
+        body: "Repeat from the first email — see the full schedule below: kickoff September 12th at Charlotte HS, scrimmage October 17th or 24th, Meet 1 November 14th, Meet 2 December 5th, Meet 3 January 9th or 16th, league judging interviews January 30th via Zoom, and the league championship February 13th.",
+      },
+      {
+        heading: "Locations Still Needed",
+        body: "The location of the league kickoff is very centrally located for all the teams. We are close to confirming locations for the October scrimmage and for December's Meet 2. We still need locations for November's Meet 1, January's Meet 3, and the February league championship. High school gyms are preferable, and schools with teams help keep the cost of the space to a minimum. If we have to use Facilitron or similar to reserve spaces, that usually comes with increased expenses to the league — hopefully we can keep that as a last resort. Please send any ideas you might have.",
+      },
+      {
+        heading: "Volunteers Needed",
+        body: "Repeat — Craig Price with the Redhot Chili Bots will be our Volunteer Coordinator for the season; he was very helpful this past season. We have been spoiled with the great crew from the Gulf Coast League (Bob, Jim, Dan, Steve, et al.) who put on the events, but we will need to build our own production crew. If you have any adults in your team's organization who you think would be a help, please send me their name. The big roles we need to fill: Referees, FTAs, and Scorers.",
+      },
+      {
+        heading: "League Assets and Needs",
+        body: "Coach David Silver (Jedison Knights) helped me last weekend pick up the items the Gulf Coast League gave us — two full fields and mats, some referee and volunteer shirts, wireless microphones, networking equipment, a pit display computer, scoring tablets, and more. We are very thankful to them for helping us get started, and I am personally thankful to Mr. Silver for providing a used enclosed trailer to help store and transport the league meeting equipment. As we gear up for the scrimmage, we will be working to make certain we can put on a full meet event.",
+      },
+      {
+        heading: "League Sponsorship",
+        body: "From a financial standpoint, we are starting with zero money to support the league and are looking for sponsors. This will help avoid any league fees during the season. Pass on any sponsor ideas you have. Donations can be made to SWFL Robotics, Inc., which is a nonprofit established to facilitate the league and its teams.",
+      },
+    ],
+  },
+  {
     id: "welcome-2026",
     date: "July 2026",
     title: "Welcome to the SWFL Robotics FTC League",

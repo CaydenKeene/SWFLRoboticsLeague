@@ -68,6 +68,23 @@ export const donate = {
   /** Street lines only; `payableTo` renders above them as the first line. */
   mailingAddress: ["10970 S. Cleveland Ave, Ste 405", "Fort Myers, FL 33907"],
 
+  /**
+   * The /thank-you page, where Stripe returns donors after a successful payment.
+   * That redirect is configured on the payment link in the Stripe dashboard —
+   * nothing here sends donors to the page, it only greets them once they arrive.
+   */
+  thankYou: {
+    eyebrow: "Donation Complete",
+    heading: "Thank You for Backing SWFL Robotics",
+    paragraphs: [
+      "Your donation went through, and it goes straight to work — field kits, venue costs, and awards for the teams competing in Southwest Florida this season.",
+      "Stripe emails your receipt within a few minutes. If it hasn't shown up, check your spam folder before writing to us.",
+    ],
+    /** Buttons at the foot of the page; the first is the primary action. */
+    homeLabel: "Back to the League",
+    scheduleLabel: "See the Schedule",
+  },
+
   sent: {
     heading: "Where to mail your check",
     thanks: "Thank you — we'll watch for it.",

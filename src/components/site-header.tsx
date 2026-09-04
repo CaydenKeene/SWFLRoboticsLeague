@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { Wrap } from "@/components/wrap";
@@ -8,11 +9,15 @@ import { navItems, site } from "@/content/site";
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
+  // Every nav target is a section of the home page, so a bare fragment is dead
+  // anywhere else. Off the home page the links get a "/" in front; on it they
+  // stay pure fragments, which the browser scrolls to without a navigation.
+  const prefix = usePathname() === "/" ? "" : "/";
 
   return (
     <header className="sticky top-0 z-50 bg-navy">
       <Wrap className="flex items-center gap-5 py-3">
-        <a href="#welcome" className="flex flex-none items-center gap-3">
+        <a href={`${prefix}#welcome`} className="flex flex-none items-center gap-3">
           {/* Decorative: the wordmark beside it carries the accessible name. */}
           <Image
             src="/league-logo-temp.svg"
@@ -45,7 +50,7 @@ export function SiteHeader() {
           {navItems.map((item) => (
             <a
               key={item.href}
-              href={item.href}
+              href={`${prefix}${item.href}`}
               className="text-sm font-semibold uppercase tracking-wide text-white/85 transition-colors hover:text-orange"
             >
               {item.label}
@@ -80,7 +85,7 @@ export function SiteHeader() {
             {navItems.map((item) => (
               <a
                 key={item.href}
-                href={item.href}
+                href={`${prefix}${item.href}`}
                 onClick={() => setOpen(false)}
                 className="py-3 text-sm font-semibold uppercase tracking-wide text-white/85"
               >

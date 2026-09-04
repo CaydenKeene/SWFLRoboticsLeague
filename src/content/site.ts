@@ -25,6 +25,10 @@ export const site = {
   } as { prefix: string; name: string; url: string } | null,
 } as const;
 
+/**
+ * Header links. Bare fragments: every section lives on the home page, and
+ * SiteHeader puts a "/" in front of them when it renders on another route.
+ */
 export const navItems = [
   { href: "#welcome", label: "Welcome" },
   { href: "#updates", label: "Updates" },

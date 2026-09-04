@@ -18,6 +18,9 @@ no database, API route, or CMS.
 ### Structure
 
 - `src/app/page.tsx` — composes the five anchor sections in order
+- `src/app/thank-you/page.tsx` — the `/thank-you` route, where Stripe returns donors after
+  a successful payment. The redirect is configured on the payment link in the Stripe
+  dashboard, not in this repo; the page's copy lives in `donate.thankYou`
 - `src/components/sections/` — one component per page section (`hero`, `updates`,
   `schedule`, `contact`, `donate`)
 - `src/components/site-header.tsx` — sticky header; client component

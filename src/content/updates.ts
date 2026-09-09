@@ -40,6 +40,24 @@ export const updates: Update[] = [
     flyerLabel: "Contest Rules & How to Enter",
   },
   {
+    id: "league-email-3",
+    emailNumber: 3,
+    date: "September 8, 2026",
+    title: "Call for Presentations at Kickoff",
+    summary:
+      "Kickoff is this Saturday. We would like to see presentations from FTC team members on any topic related to FTC — CAD, outreach, team leadership and organization, fundraising, and more. A couple of ideas have already come in, and this is a great chance for a team member to practice their outreach. Please pass the kickoff and logo contest flyers on to your team members and parents.",
+    sections: [
+      {
+        heading: "How to Submit a Presentation",
+        body: "Email your team member's idea to the league address, swflrobotics@gmail.com. Presentations should run no longer than about 7 minutes, though the final length will depend on how many submissions we receive. Slides can be PowerPoint or PDF, or the presentation can be a YouTube video. Send it ahead of time or bring it on a flash drive.",
+      },
+      {
+        heading: "League Logo Contest",
+        body: "We have already received our first submission for the league logo contest! Entries are open to any registered SWFL Robotics team — see the contest flyer for the rules, file requirements, and where to send an entry.",
+      },
+    ],
+  },
+  {
     id: "league-email-2",
     emailNumber: 2,
     date: "August 23, 2026",

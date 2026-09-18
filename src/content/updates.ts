@@ -27,7 +27,11 @@ export type Update = {
   sections?: UpdateSection[];
 };
 
-/** Newest first — the Updates section renders these in array order. */
+/**
+ * Rendered in array order. The logo contest announcement stays pinned on top until
+ * the contest ends; everything below it is newest first, so a new league email goes
+ * directly under it.
+ */
 export const updates: Update[] = [
   {
     id: "logo-contest",
@@ -38,6 +42,40 @@ export const updates: Update[] = [
       "Our new league needs a logo, and any registered SWFL Robotics team can design it. The winning team takes home a goBILDA FTC Starter Kit donated by Charlotte High School. Submissions are due September 21 — the flyer has the full rules, the file requirements, and where to send your entry.",
     flyerUrl: "/docs/logo-contest-flyer.pdf",
     flyerLabel: "Contest Rules & How to Enter",
+  },
+  {
+    id: "league-email-4",
+    emailNumber: 4,
+    date: "September 16, 2026",
+    title: "Kickoff Recap & Logo Contest Deadline",
+    summary:
+      "Great kickoff event! Thanks to the 15 or so teams that attended, and thanks again to Coach George and the Charlotte HS teams for making it possible — very nice facility. This is our 4th league-wide email of the 2026–27 season. Please share it with all of your teams and parents.",
+    sections: [
+      {
+        heading: "League Logo Contest",
+        body: "We have some nice submissions for the league logo contest — great job to everyone who has entered, and there is still time. The committee has decided to allow up to two submissions per team, so keep them coming. Email entries to swflrobotics@gmail.com by the end of Monday, September 21st. I will gather my elite team of highly trained and somewhat competent (hopefully unbiased) adults to help decide the future look of our league. I hope to have the result by the end of next week so the winning team gets the prize as soon as possible to help with their robot construction.",
+      },
+      {
+        heading: "Current League Schedule",
+        body: "September 12th — Kickoff Event at Charlotte HS. October 24th — Scrimmage at Nova Classical STEM Academy, 7101 Banway Rd., Fort Myers, FL 33907. November 14th — Meet 1, currently working on a location. December 5th — Meet 2, currently working on a location. January 9th or 16th — Meet 3, location still needed. January 30th — League Judging Interviews via Zoom. February 13th — League Championship, location TBD.",
+      },
+      {
+        heading: "Locations Still Needed",
+        body: "I believe we have the first three events solved — we just need to confirm some details with the venues for the first two meets, then I can let everyone know. Thanks to everyone who has been helping with locations, and please keep sending any ideas you might have. Ideally I would like an event in the Sarasota area and one in Collier County to balance things out. We do, however, need to lock these in as soon as possible.",
+      },
+      {
+        heading: "Volunteer Roles Available",
+        body: "Craig Price with the Redhot Chili Bots will be our Volunteer Coordinator for the season, as mentioned at the kickoff. We have been spoiled with the great crew from the Gulf Coast League (Bob, Jim, Dan, Steve, et al.) who put on the events, but we will need to build our own production crew. If you have any adults in your team's organization who you think would be a help, please send me their name. The big roles we need to fill: referees, FTAs, scorers (important), official scorekeeper, setup and takedown crew, team queuers, robot inspectors, and the registration table. I would like to line most of these up by our scrimmage so we can practice scoring some matches. There is lots of training available through the FIRST system, so it is actually pretty easy to be a volunteer — see the FIRST volunteer resources at ftc-resources.firstinspires.org/ftc/volunteer.",
+      },
+      {
+        heading: "League Assets and Needs",
+        body: "Coach David Silver (Jedison Knights) and I will be working over the next few weeks to double-check that we have everything we need to run an event. We are close — we may need a laptop or two and some scoring tablets. As we gear up for the scrimmage, we will be working to make certain we can put on a full meet event.",
+      },
+      {
+        heading: "League Fee Sponsorship",
+        body: "A flyer outlining the league fee sponsorship went out with this email — apologies, I thought I had emailed it out to everyone previously. It should have all the information you need, but please send any questions you have.",
+      },
+    ],
   },
   {
     id: "league-email-3",

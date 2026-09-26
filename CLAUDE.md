@@ -33,7 +33,7 @@ no database, API route, or CMS.
 - `src/components/wrap.tsx` — shared 1120px page gutter used by every section
 - `src/content/` — all copy and season data; `donate.ts` holds the popup copy, the
   designation choices, and the check mailing address
-- `public/` — league logo (temporary) and the official FTC mark
+- `public/` — league logo (the 2026 contest winner) and the official FTC mark
 
 ### Content Convention
 

@@ -3,6 +3,16 @@ export type UpdateSection = {
   body: string;
 };
 
+export type UpdateImage = {
+  /** Image served from /public, e.g. "/league-logo.png". */
+  src: string;
+  alt: string;
+  /** Intrinsic pixel size of the file, so the layout reserves the right box. */
+  width: number;
+  height: number;
+  caption: string;
+};
+
 export type Update = {
   id: string;
   /** Display date — the day an email was sent, e.g. "August 23, 2026". */
@@ -23,25 +33,47 @@ export type Update = {
    * Defaults to `"<title> Flyer"`; set it where that reads awkwardly.
    */
   flyerLabel?: string;
+  /** Images shown side by side under the summary; omit for text-only messages. */
+  images?: UpdateImage[];
   /** Numbered detail blocks; omit for short announcements. */
   sections?: UpdateSection[];
 };
 
-/**
- * Rendered in array order. The logo contest announcement stays pinned on top until
- * the contest ends; everything below it is newest first, so a new league email goes
- * directly under it.
- */
+/** Rendered in array order, newest first — a new league email goes at the top. */
 export const updates: Update[] = [
   {
-    id: "logo-contest",
-    date: "September 1, 2026",
-    title: "Team Logo Design Contest",
-    tag: "Now Open",
+    id: "league-email-5",
+    emailNumber: 5,
+    date: "September 24, 2026",
+    title: "And the Winning Logo Is…",
     summary:
-      "Our new league needs a logo, and any registered SWFL Robotics team can design it. The winning team takes home a goBILDA FTC Starter Kit donated by Charlotte High School. Submissions are due September 21 — the flyer has the full rules, the file requirements, and where to send your entry.",
-    flyerUrl: "/docs/logo-contest-flyer.pdf",
-    flyerLabel: "Contest Rules & How to Enter",
+      "After much deliberation amongst our highly trained selection committee, the league has a logo! The winning design comes from Team 32385 Mighty Mojo from Charlotte High School in Punta Gorda, with a VERY close second place finish by Team 30694 Bots4Life, a community-based team from Naples.",
+    images: [
+      {
+        src: "/league-logo.png",
+        alt: "SWFL Robotics League logo: a robotic arm over palm trees, a setting sun and ocean waves inside a gear, beside the words SWFL Robotics League, Programmed for the Challenge",
+        width: 1647,
+        height: 660,
+        caption: "Winner — Team 32385 Mighty Mojo",
+      },
+      {
+        src: "/logo-contest-second-place.png",
+        alt: "Second place logo: a breaking wave with a gear and circuit traces above the words SWFL Robotics League",
+        width: 1432,
+        height: 955,
+        caption: "Second place — Team 30694 Bots4Life",
+      },
+    ],
+    sections: [
+      {
+        heading: "The Prize",
+        body: "Since the prize for the contest was generously donated by Charlotte High School, Team 30694 Bots4Life will be receiving the goBILDA Starter Kit!",
+      },
+      {
+        heading: "Thank You",
+        body: "Thanks to everyone who submitted logo designs. In all, we had over 20 different designs submitted, and it was very difficult deciding from amongst the best. The participation in this was top notch. We look forward to an exciting season and seeing all the teams at the next league event.",
+      },
+    ],
   },
   {
     id: "league-email-4",

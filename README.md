@@ -124,9 +124,9 @@ edge), `.clip-notch` (cut card corner), and `.hero-stripes` (diagonal hero accen
 
 ## Assets
 
-`public/league-logo-temp.svg` is the **temporary** league logo — it's a placeholder
-pending the team logo design contest. Swap the file (keeping the name, or updating
-the reference in `src/components/site-header.tsx`) once a winner is chosen.
+`public/league-logo.png` is the league logo — the winning design from the 2026 team
+logo contest, by Team 32385 Mighty Mojo. It has a white background and dark lettering,
+so on navy it sits on a white plate (see `src/components/site-header.tsx`).
 
 `public/ftc-logo-horizontal-reverse.png` is the official FIRST Tech Challenge mark and
 should be used unmodified. Additional official FTC logo formats are in

@@ -11,11 +11,6 @@ export const site = {
   description:
     "Home base for the SWFL Robotics FIRST Tech Challenge league — season updates, meet dates, and everything in between.",
   /**
-   * Two lines under the wordmark explaining why the logo is a placeholder.
-   * Set to null once the league has its real mark and the note is moot.
-   */
-  logoNote: ["Logo design contest", "now open"] as readonly string[] | null,
-  /**
    * Build credit shown in the footer. Set to null to drop the line entirely.
    */
   credit: {

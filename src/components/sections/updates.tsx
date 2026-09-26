@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { FileText } from "lucide-react";
 import { UpdateDetails } from "@/components/update-details";
 import { Wrap } from "@/components/wrap";
@@ -60,6 +61,28 @@ export function Updates() {
                   <FileText className="h-3.5 w-3.5 flex-none" aria-hidden />
                   {update.flyerLabel ?? `${update.title} Flyer`} (PDF)
                 </a>
+              )}
+
+              {update.images && (
+                <div className="mt-4 grid max-w-3xl gap-4 sm:grid-cols-2">
+                  {update.images.map((image) => (
+                    <figure key={image.src}>
+                      <div className="flex h-40 items-center justify-center border border-navy/10 bg-white p-3">
+                        <Image
+                          src={image.src}
+                          alt={image.alt}
+                          width={image.width}
+                          height={image.height}
+                          sizes="(min-width: 640px) 360px, 100vw"
+                          className="max-h-full w-auto object-contain"
+                        />
+                      </div>
+                      <figcaption className="mt-1.5 text-xs font-semibold uppercase text-navy/60">
+                        {image.caption}
+                      </figcaption>
+                    </figure>
+                  ))}
+                </div>
               )}
 
               {update.sections && (

@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { Wrap } from "@/components/wrap";
-import { navItems, site } from "@/content/site";
+import { navItems } from "@/content/site";
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
@@ -17,32 +17,19 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 bg-navy">
       <Wrap className="flex items-center gap-5 py-3">
-        <a href={`${prefix}#welcome`} className="flex flex-none items-center gap-3">
-          {/* Decorative: the wordmark beside it carries the accessible name. */}
-          <Image
-            src="/league-logo-temp.svg"
-            alt=""
-            width={600}
-            height={560}
-            priority
-            className="h-12 w-auto sm:h-16"
-          />
-          <span>
-            <span className="block font-display text-xs uppercase leading-tight text-white sm:text-sm">
-              SWFL Robotics
-              <br />
-              League
-            </span>
-            {site.logoNote && (
-              <span className="mt-1 block text-[10px] font-semibold uppercase leading-tight tracking-wide text-orange sm:text-[11px]">
-                {site.logoNote.map((line, i) => (
-                  <span key={line}>
-                    {i > 0 && <br />}
-                    {line}
-                  </span>
-                ))}
-              </span>
-            )}
+        <a href={`${prefix}#welcome`} className="flex-none">
+          {/* The artwork has a white ground and black lettering, so it sits on a
+              white plate rather than directly on the navy bar. */}
+          <span className="block rounded-md bg-white px-2 py-1">
+            <Image
+              src="/league-logo.png"
+              alt="SWFL Robotics League"
+              width={1647}
+              height={660}
+              sizes="(min-width: 640px) 180px, 120px"
+              priority
+              className="h-12 w-auto sm:h-[72px]"
+            />
           </span>
         </a>
 

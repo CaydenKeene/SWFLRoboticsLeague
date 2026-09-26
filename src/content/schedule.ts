@@ -37,7 +37,12 @@ export const schedule: ScheduleEvent[] = [
     flyerUrl: "/docs/kickoff-flyer.pdf",
     flyerLabel: "Kickoff Flyer",
   },
-  { date: "Oct 17 or 24", title: "Scrimmage", location: null },
+  {
+    date: "Oct 24",
+    title: "Scrimmage",
+    location: "Nova Classical STEM Academy",
+    address: "7101 Banway Rd, Fort Myers, FL 33907",
+  },
   { date: "Nov 14", title: "Meet 1", location: null },
   { date: "Dec 5", title: "Meet 2", location: null },
   { date: "Jan 9 or 16", title: "Meet 3", location: null },

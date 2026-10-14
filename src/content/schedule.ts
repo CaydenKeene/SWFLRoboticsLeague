@@ -43,11 +43,26 @@ export const schedule: ScheduleEvent[] = [
     location: "Nova Classical STEM Academy",
     address: "7101 Banway Rd, Fort Myers, FL 33907",
   },
-  { date: "Nov 14", title: "Meet 1", location: null },
+  {
+    date: "Nov 14",
+    title: "Meet 1",
+    location: "Charlotte Performing Arts Center",
+    address: "701 Carmalita St, Punta Gorda, FL 33950",
+  },
   { date: "Dec 5", title: "Meet 2", location: null },
-  { date: "Jan 9 or 16", title: "Meet 3", location: null },
+  {
+    date: "Jan 16",
+    title: "Meet 3",
+    location: "Fort Myers Senior High School",
+    address: "2635 Cortez Blvd, Fort Myers, FL 33901",
+  },
   { date: "Jan 30", title: "League Judging Interviews", location: "Via Zoom" },
-  { date: "Feb 13", title: "League Championship", location: null },
+  {
+    date: "Feb 13",
+    title: "League Tournament",
+    location: "Village School of Naples",
+    address: "6000 Goodlette-Frank Rd N, Naples, FL 34109",
+  },
 ];
 
 export const scheduleNote =

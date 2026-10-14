@@ -18,7 +18,8 @@ store at runtime (see Event Photos below).
 
 ### Structure
 
-- `src/app/page.tsx` — composes the five anchor sections in order
+- `src/app/page.tsx` — composes the anchor sections in order; revalidates every 5 minutes
+  because the photos section reads the photo store
 - `src/app/thank-you/page.tsx` — the `/thank-you` route, where Stripe returns donors after
   a successful payment. The redirect is configured on the payment link in the Stripe
   dashboard, not in this repo; the page's copy lives in `donate.thankYou`
@@ -33,8 +34,10 @@ store at runtime (see Event Photos below).
   URL hash (`#12`) so single photos can be shared
 - `src/components/update-card.tsx` — one league email, shared by all three places it
   appears; `share-link-button.tsx` is its client-side share/copy button
-- `src/components/sections/` — one component per page section (`hero`, `updates`,
-  `schedule`, `contact`, `donate`)
+- `src/components/sections/` — one component per page section (`hero`, `photos`,
+  `updates`, `schedule`, `contact`, `donate`). `photos` sits between the hero and updates:
+  slideshows (`photo-slideshow.tsx`) of the two newest albums side by side — or, while
+  there's only one, two slideshows of it — hidden until an album exists
 - `src/components/site-header.tsx` — sticky header; client component
   (`"use client"` for the mobile menu toggle)
 - `src/components/copy-email-button.tsx` — client component; copies `site.email` to the

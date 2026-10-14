@@ -42,6 +42,34 @@ export type Update = {
 /** Rendered in array order, newest first — a new league email goes at the top. */
 export const updates: Update[] = [
   {
+    id: "league-email-6",
+    emailNumber: 6,
+    date: "October 11, 2026",
+    title: "So Close: Volunteers, Venues & Fees",
+    summary:
+      "So close… Our scrimmage is October 24th and the first official meet of the new league is November 14th. This email covers volunteers, the updated league schedule, league fees, and event logistics. Please share it with your parent group and team members.",
+    flyerUrl: "/docs/sponsorship-flyer.pdf",
+    flyerLabel: "League Fee Sponsorship Flyer",
+    sections: [
+      {
+        heading: "Volunteers Needed",
+        body: "As a very new league, with our scrimmage on October 24th and our first official meet on November 14th, we must assemble our event crew to produce the meets. We need parents and coaches to help us find folks to fill important roles. The most important roles to fill right now: referees (need 2 more), FTA (field technical advisor) and assistant (need at least 1 more), scorers (need 3–4 each meet), and official scorekeeper (need at least 1). We will also need the normal day-of roles such as robot inspectors, queuers, and field resetters. These are very good roles for involved parents to support their child by supporting the league. If you are interested, please contact Craig Price, our league volunteer coordinator.",
+      },
+      {
+        heading: "League Schedule Update",
+        body: "League Meet 1 — November 14th at Charlotte Performing Arts Center, Charlotte HS, 701 Carmalita St., Punta Gorda, FL (same location as the kickoff event). League Meet 2 — December 5th; we are still seeking a location, hopefully in the northern end of our league. League Meet 3 — January 16th at Fort Myers Senior High School, 2635 Cortez Blvd., Fort Myers, FL. League Tournament — February 13th at The Village School of Naples, 6000 Goodlette-Frank Rd., Naples, FL.",
+      },
+      {
+        heading: "League Fees",
+        body: "A reminder about the $100 per team league fee. We are challenging each team to seek out a company to sponsor their team by paying their league fee — see the sponsorship flyer.",
+      },
+      {
+        heading: "Event Logistics",
+        body: "The success of our events depends on our teams and the many volunteers needed throughout the season. In addition to the volunteers above, we will need help at each event setting up and taking down the competition fields, spreading tarps on floors, and setting up and taking down tables and chairs. We typically have lots of kids (and parents) looking for things to do when they first arrive, so expect to pitch in for the good of all. And for parents and coaches wanting to play a larger role in the events, please encourage them to volunteer.",
+      },
+    ],
+  },
+  {
     id: "league-email-5",
     emailNumber: 5,
     date: "September 24, 2026",

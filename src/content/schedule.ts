@@ -26,6 +26,12 @@ export type ScheduleEvent = {
   mapUrl?: string;
   /** One-line venue note: parking, entrance, pit access. Omit when there's nothing to say. */
   info?: string;
+  /**
+   * The event's photo album slug, e.g. "2026-09-12-kickoff-event" for the photo-store
+   * folder "2026-09-12 Kickoff Event". Set it once photos are up; the row then links
+   * to /photos/<id>. /add-photos fills it in.
+   */
+  albumId?: string;
 };
 
 export const schedule: ScheduleEvent[] = [
@@ -36,6 +42,7 @@ export const schedule: ScheduleEvent[] = [
     address: "701 Carmalita St, Punta Gorda, FL 33950",
     flyerUrl: "/docs/kickoff-flyer.pdf",
     flyerLabel: "Kickoff Flyer",
+    albumId: "2026-09-12-kickoff-event",
   },
   {
     date: "Oct 24",

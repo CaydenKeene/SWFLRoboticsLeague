@@ -9,15 +9,16 @@ import { navItems } from "@/content/site";
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
-  // Every nav target is a section of the home page, so a bare fragment is dead
-  // anywhere else. Off the home page the links get a "/" in front; on it they
-  // stay pure fragments, which the browser scrolls to without a navigation.
-  const prefix = usePathname() === "/" ? "" : "/";
+  // A bare fragment is dead anywhere but the home page. Off it, fragment links
+  // get a "/" in front; on it they stay pure fragments, which the browser
+  // scrolls to without a navigation. Page paths are left alone.
+  const onHome = usePathname() === "/";
+  const link = (href: string) => (href.startsWith("#") && !onHome ? `/${href}` : href);
 
   return (
     <header className="sticky top-0 z-50 bg-navy">
       <Wrap className="flex items-center gap-5 py-3">
-        <a href={`${prefix}#welcome`} className="flex-none">
+        <a href={link("#welcome")} className="flex-none">
           {/* The artwork has a white ground and black lettering, so it sits on a
               white plate rather than directly on the navy bar. */}
           <span className="block rounded-md bg-white px-2 py-1">
@@ -37,7 +38,7 @@ export function SiteHeader() {
           {navItems.map((item) => (
             <a
               key={item.href}
-              href={`${prefix}${item.href}`}
+              href={link(item.href)}
               className="text-sm font-semibold uppercase tracking-wide text-white/85 transition-colors hover:text-orange"
             >
               {item.label}
@@ -72,7 +73,7 @@ export function SiteHeader() {
             {navItems.map((item) => (
               <a
                 key={item.href}
-                href={`${prefix}${item.href}`}
+                href={link(item.href)}
                 onClick={() => setOpen(false)}
                 className="py-3 text-sm font-semibold uppercase tracking-wide text-white/85"
               >

@@ -8,6 +8,15 @@ export const site = {
   // Stripe payment link. "#" hides the card option in the donate popup, leaving
   // only the mail-a-check path.
   donateUrl: "https://donate.stripe.com/28E3cvdsR2QIapW7697ok01" as string,
+  /**
+   * Event photo store: a SeaweedFS service on Coolify, read through its S3 API. Each
+   * folder in the bucket named "YYYY-MM-DD Event Title" is one album on /photos. The
+   * host must also be listed under `images.remotePatterns` in next.config.ts.
+   */
+  photoStore: {
+    url: "https://photos.swflrobotics.org",
+    bucket: "event-photos",
+  },
   description:
     "Home base for the SWFL Robotics FIRST Tech Challenge league — season updates, meet dates, and everything in between.",
   /**
@@ -21,13 +30,14 @@ export const site = {
 } as const;
 
 /**
- * Header links. Bare fragments: every section lives on the home page, and
- * SiteHeader puts a "/" in front of them when it renders on another route.
+ * Header links. Fragments are sections of the home page, and SiteHeader puts a
+ * "/" in front of them when it renders on another route; paths are other pages.
  */
 export const navItems = [
   { href: "#welcome", label: "Welcome" },
   { href: "#updates", label: "Updates" },
   { href: "#schedule", label: "Schedule" },
+  { href: "/photos", label: "Photos" },
   { href: "#contact", label: "Contact" },
   { href: "#donate", label: "Donate" },
 ] as const;

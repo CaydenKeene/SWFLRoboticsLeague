@@ -13,7 +13,8 @@ Guidance for Claude Code (claude.ai/code) when working in this repository.
 
 Single-page marketing site for the SWFL Robotics League, built with Next.js 15
 (App Router), TypeScript, and Tailwind CSS 3. Everything renders statically — there is
-no database, API route, or CMS.
+no database, API route, or CMS — except the event photo pages, which read the photo
+store at runtime (see Event Photos below).
 
 ### Structure
 
@@ -24,6 +25,12 @@ no database, API route, or CMS.
 - `src/app/updates/` — `/updates` lists every league email; `/updates/[id]` gives each one
   its own shareable page, statically generated from `updates.ts`. The home page shows only
   the newest two. An update's `id` is its URL slug, so don't rename a live one
+- `src/app/photos/` — `/photos` lists the event albums; `/photos/[id]` is one album's
+  thumbnail grid. Both read the photo store via `src/lib/photos.ts` and refresh every
+  5 minutes (ISR), so new uploads appear without a deploy
+- `src/components/photo-gallery.tsx` — client component; an album's grid and its
+  lightbox, a native `<dialog>` like the donate popup. The open photo is mirrored in the
+  URL hash (`#12`) so single photos can be shared
 - `src/components/update-card.tsx` — one league email, shared by all three places it
   appears; `share-link-button.tsx` is its client-side share/copy button
 - `src/components/sections/` — one component per page section (`hero`, `updates`,
@@ -38,6 +45,10 @@ no database, API route, or CMS.
 - `src/components/wrap.tsx` — shared 1120px page gutter used by every section
 - `src/content/` — all copy and season data; `donate.ts` holds the popup copy, the
   designation choices, and the check mailing address
+- `src/lib/photos.ts` — lists the photo store's bucket and turns folders into albums
+- `scripts/photos.mjs` — `npm run photos -- <folder> "YYYY-MM-DD Title"` uploads a
+  folder as an album: HEIC → JPEG, capped at 3000px, metadata (GPS) stripped. Run by
+  the `/add-photos` command in `.claude/commands/`
 - `public/` — league logo (the 2026 contest winner) and the official FTC mark
 
 ### Content Convention
@@ -55,6 +66,8 @@ Conventions the components depend on:
   `public/docs/` convention, but omitting it renders nothing rather than TBD
 - `site.donateUrl === "#"` hides the card option in the donate popup, leaving only the
   mail-a-check path
+- `ScheduleEvent.albumId` adds an "Event Photos" link to that row; it's the album's
+  slug, e.g. `"2026-09-12-kickoff-event"`
 - `donate.web3formsKey === ""` skips the check form and shows the mailing address
   directly — there is nowhere to deliver a submission until a key is set
 
@@ -69,6 +82,25 @@ Conventions the components depend on:
   uppercasing the source strings.
 - No dark mode — this is a fixed-palette brand site.
 
+### Event Photos
+
+Photos are **not** in git or `public/`. They live in a SeaweedFS service on Coolify
+(S3-compatible; `site.photoStore`), served at `photos.swflrobotics.org` through the
+Cloudflare tunnel, with anonymous reads allowed.
+
+- Each bucket folder named `YYYY-MM-DD Event Title` is an album; its slug (URL id) is
+  that name lowercased and hyphenated. Other folders are ignored. Photos sort by file
+  name; a name starting with `00` becomes the cover
+- Originals are rendered through `next/image` (not `unoptimized`), which makes the
+  thumbnails and screen-sized copies. HEIC can't be optimized and is skipped — upload
+  JPEGs, or use the script, which converts
+- Listing the bucket needs keys: `PHOTOS_S3_ACCESS_KEY` / `PHOTOS_S3_SECRET_KEY`. Locally
+  they're in `.env.local` (admin keys, also used to upload); in production they're a
+  read-only SeaweedFS user set on the website in Coolify. Without them, `/photos` shows
+  its empty state rather than failing
+- Through the tunnel, Cloudflare refuses signed HEAD requests on image paths — list the
+  bucket instead of HEADing objects
+
 ### design-reference/
 
 The original Claude design-session output (`.dc.html`, `styles.css`, `_ds/`, `uploads/`).
@@ -78,7 +110,8 @@ Docker build. Do not import from it.
 ## Deployment
 
 Production runs the standard scripts — `npm ci` → `npm run build` → `npm start` — on port
-3000. No Dockerfile, no custom build commands, no environment variables.
+3000. No Dockerfile and no custom build commands. The only environment variables are the
+two read-only photo-store keys above.
 
 This constrains `next.config.ts`: **do not add `output: "standalone"`.** That build must be
 started with `node .next/standalone/server.js`, not `npm start`. Keep `next start` working

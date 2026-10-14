@@ -1,4 +1,5 @@
-import { FileText, Map } from "lucide-react";
+import Link from "next/link";
+import { Camera, FileText, Map } from "lucide-react";
 import { MapLink } from "@/components/map-link";
 import { Wrap } from "@/components/wrap";
 import { schedule, scheduleNote, type ScheduleEvent } from "@/content/schedule";
@@ -71,7 +72,7 @@ export function Schedule() {
  * goes on, so a row with none of them falls back to TBD rather than sitting blank.
  */
 function EventDocs({ event }: { event: ScheduleEvent }) {
-  if (!event.flyerUrl && !event.mapUrl && !event.info) {
+  if (!event.flyerUrl && !event.mapUrl && !event.info && !event.albumId) {
     return (
       <div className="text-[13px] font-bold uppercase tracking-[0.05em] text-white/40">
         TBD
@@ -92,6 +93,15 @@ function EventDocs({ event }: { event: ScheduleEvent }) {
         </DocLink>
       )}
       {event.info && <p className="text-[13px] text-white/60">{event.info}</p>}
+      {event.albumId && (
+        <Link
+          href={`/photos/${event.albumId}`}
+          className="flex items-center gap-1.5 text-[13px] font-bold text-orange underline-offset-4 hover:underline"
+        >
+          <Camera className="h-3.5 w-3.5 flex-none" aria-hidden />
+          Event Photos
+        </Link>
+      )}
     </div>
   );
 }

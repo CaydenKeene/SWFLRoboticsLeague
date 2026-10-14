@@ -64,16 +64,16 @@ export function Updates() {
               )}
 
               {update.images && (
-                <div className="mt-4 grid max-w-3xl gap-4 sm:grid-cols-2">
+                <div className="mt-4 grid max-w-md gap-3 sm:grid-cols-2">
                   {update.images.map((image) => (
                     <figure key={image.src}>
-                      <div className="flex h-40 items-center justify-center border border-navy/10 bg-white p-3">
+                      <div className="flex h-20 items-center justify-center border border-navy/10 bg-white p-3">
                         <Image
                           src={image.src}
                           alt={image.alt}
                           width={image.width}
                           height={image.height}
-                          sizes="(min-width: 640px) 360px, 100vw"
+                          sizes="(min-width: 640px) 200px, 100vw"
                           className="max-h-full w-auto object-contain"
                         />
                       </div>

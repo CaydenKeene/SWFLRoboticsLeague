@@ -21,6 +21,11 @@ no database, API route, or CMS.
 - `src/app/thank-you/page.tsx` — the `/thank-you` route, where Stripe returns donors after
   a successful payment. The redirect is configured on the payment link in the Stripe
   dashboard, not in this repo; the page's copy lives in `donate.thankYou`
+- `src/app/updates/` — `/updates` lists every league email; `/updates/[id]` gives each one
+  its own shareable page, statically generated from `updates.ts`. The home page shows only
+  the newest two. An update's `id` is its URL slug, so don't rename a live one
+- `src/components/update-card.tsx` — one league email, shared by all three places it
+  appears; `share-link-button.tsx` is its client-side share/copy button
 - `src/components/sections/` — one component per page section (`hero`, `updates`,
   `schedule`, `contact`, `donate`)
 - `src/components/site-header.tsx` — sticky header; client component

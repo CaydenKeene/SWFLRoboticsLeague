@@ -21,12 +21,15 @@ export function UpdateDetails({
   id,
   sections,
   defaultOpen = false,
+  openOnLoad = false,
 }: {
   id: string;
   sections: UpdateSection[];
   defaultOpen?: boolean;
+  /** Open at every width, phones included — for an email shown on its own page. */
+  openOnLoad?: boolean;
 }) {
-  const [override, setOverride] = useState<boolean | null>(null);
+  const [override, setOverride] = useState<boolean | null>(openOnLoad ? true : null);
   const openOnDesktopOnly = override === null && defaultOpen;
   const open = override ?? false;
   const panelId = `${id}-details`;
@@ -76,11 +79,34 @@ export function UpdateDetails({
               {i + 1}. {section.heading}
             </p>
             <p className="max-w-[70ch] text-sm leading-relaxed text-navy/75">
-              {section.body}
+              <SectionBody section={section} />
             </p>
           </li>
         ))}
       </ol>
+    </>
+  );
+}
+
+/** A section's text, with its `link` phrase (if any) turned into an anchor. */
+function SectionBody({ section }: { section: UpdateSection }) {
+  const { body, link } = section;
+  const at = link ? body.indexOf(link.text) : -1;
+  // A phrase that doesn't match the body renders as plain text rather than breaking.
+  if (!link || at === -1) return body;
+
+  return (
+    <>
+      {body.slice(0, at)}
+      <a
+        href={link.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="font-semibold text-rust underline decoration-rust/30 underline-offset-2 transition-colors hover:decoration-rust"
+      >
+        {link.text}
+      </a>
+      {body.slice(at + link.text.length)}
     </>
   );
 }

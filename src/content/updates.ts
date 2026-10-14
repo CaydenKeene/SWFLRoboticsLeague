@@ -1,6 +1,11 @@
 export type UpdateSection = {
   heading: string;
   body: string;
+  /**
+   * Turns a phrase in `body` into a link, e.g. pointing "see the flyer" at a PDF in
+   * public/docs. `text` must appear in `body` word for word; links open in a new tab.
+   */
+  link?: { text: string; href: string };
 };
 
 export type UpdateImage = {
@@ -39,6 +44,14 @@ export type Update = {
   sections?: UpdateSection[];
 };
 
+/**
+ * An email's own page, e.g. "/updates/league-email-6". The id is the URL slug, so
+ * don't rename one once it's live — links people have shared would break.
+ */
+export function updatePath(update: Update) {
+  return `/updates/${update.id}`;
+}
+
 /** Rendered in array order, newest first — a new league email goes at the top. */
 export const updates: Update[] = [
   {
@@ -62,6 +75,7 @@ export const updates: Update[] = [
       {
         heading: "League Fees",
         body: "A reminder about the $100 per team league fee. We are challenging each team to seek out a company to sponsor their team by paying their league fee — see the sponsorship flyer.",
+        link: { text: "see the sponsorship flyer", href: "/docs/sponsorship-flyer.pdf" },
       },
       {
         heading: "Event Logistics",

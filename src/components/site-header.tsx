@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
@@ -14,6 +14,8 @@ export function SiteHeader() {
   // scrolls to without a navigation. Page paths are left alone.
   const onHome = usePathname() === "/";
   const link = (href: string) => (href.startsWith("#") && !onHome ? `/${href}` : href);
+  // A divider sets the links to other pages apart from the home page's sections.
+  const firstPage = navItems.findIndex((item) => item.href.startsWith("/"));
 
   return (
     <header className="sticky top-0 z-50 bg-navy">
@@ -35,14 +37,16 @@ export function SiteHeader() {
         </a>
 
         <nav className="ml-auto hidden items-center gap-7 lg:flex">
-          {navItems.map((item) => (
-            <a
-              key={item.href}
-              href={link(item.href)}
-              className="text-sm font-semibold uppercase tracking-wide text-white/85 transition-colors hover:text-orange"
-            >
-              {item.label}
-            </a>
+          {navItems.map((item, i) => (
+            <Fragment key={item.href}>
+              {i === firstPage && <span className="h-5 w-px bg-white/25" aria-hidden />}
+              <a
+                href={link(item.href)}
+                className="text-sm font-semibold uppercase tracking-wide text-white/85 transition-colors hover:text-orange"
+              >
+                {item.label}
+              </a>
+            </Fragment>
           ))}
         </nav>
 
@@ -70,15 +74,17 @@ export function SiteHeader() {
       {open && (
         <nav id="mobile-nav" className="border-t border-white/10 lg:hidden">
           <Wrap className="flex flex-col py-2">
-            {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={link(item.href)}
-                onClick={() => setOpen(false)}
-                className="py-3 text-sm font-semibold uppercase tracking-wide text-white/85"
-              >
-                {item.label}
-              </a>
+            {navItems.map((item, i) => (
+              <Fragment key={item.href}>
+                {i === firstPage && <span className="my-2 h-px bg-white/15" aria-hidden />}
+                <a
+                  href={link(item.href)}
+                  onClick={() => setOpen(false)}
+                  className="py-3 text-sm font-semibold uppercase tracking-wide text-white/85"
+                >
+                  {item.label}
+                </a>
+              </Fragment>
             ))}
           </Wrap>
         </nav>

@@ -12,6 +12,11 @@
   body {
     @apply bg-cream font-sans text-navy antialiased;
   }
+
+  /* Takes up the space a short page leaves, keeping the footer at the bottom. */
+  body > main {
+    @apply flex-1;
+  }
 }
 
 @layer utilities {

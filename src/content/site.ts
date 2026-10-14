@@ -35,11 +35,12 @@ export const site = {
  */
 export const navItems = [
   { href: "#welcome", label: "Welcome" },
-  { href: "#updates", label: "Updates" },
   { href: "#schedule", label: "Schedule" },
-  { href: "/photos", label: "Photos" },
   { href: "#contact", label: "Contact" },
   { href: "#donate", label: "Donate" },
+  // Links to other pages go last, after the home page's own sections.
+  { href: "/updates", label: "Updates" },
+  { href: "/photos", label: "Photos" },
 ] as const;
 
 export const hero = {

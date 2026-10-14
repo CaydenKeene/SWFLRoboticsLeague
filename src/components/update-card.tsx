@@ -1,10 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import { FileText } from "lucide-react";
+import { ArrowRight, FileText } from "lucide-react";
 import { ShareLinkButton } from "@/components/share-link-button";
 import { UpdateDetails } from "@/components/update-details";
 import { site } from "@/content/site";
 import { updatePath, type Update } from "@/content/updates";
+import { cn } from "@/lib/utils";
 
 /**
  * One league email. Shared by the home page, the /updates archive, and each
@@ -14,12 +15,20 @@ export function UpdateCard({
   update,
   detailsOpen = "closed",
   standalone = false,
+  compact = false,
+  className,
 }: {
   update: Update;
   /** "desktop" opens the numbered sections on wide screens only; "always" opens them everywhere. */
   detailsOpen?: "closed" | "desktop" | "always";
   /** True on the email's own page: the title is the page's h1 and doesn't link to itself. */
   standalone?: boolean;
+  /**
+   * Summary only: the numbered sections are replaced by a link to the email's own
+   * page, where they're open. Keeps the home page card a fixed, short height.
+   */
+  compact?: boolean;
+  className?: string;
 }) {
   const path = updatePath(update);
   const Heading = standalone ? "h1" : "h3";
@@ -28,7 +37,12 @@ export function UpdateCard({
     : update.title;
 
   return (
-    <article className="border-l-[6px] border-orange bg-white p-6 shadow-[0_2px_10px_rgba(0,0,0,0.06)]">
+    <article
+      className={cn(
+        "border-l-[6px] border-orange bg-white p-6 shadow-[0_2px_10px_rgba(0,0,0,0.06)]",
+        className,
+      )}
+    >
       <div className="mb-1.5 flex flex-wrap items-center gap-2.5">
         {update.tag && (
           <span className="border border-teal px-2 py-0.5 text-[11px] font-extrabold uppercase tracking-[0.08em] text-teal">
@@ -95,7 +109,17 @@ export function UpdateCard({
         </div>
       )}
 
-      {update.sections && (
+      {update.sections && compact && (
+        <Link
+          href={path}
+          className="mt-3.5 inline-flex items-center gap-1.5 font-display text-xs uppercase tracking-[0.08em] text-rust transition-opacity hover:opacity-70"
+        >
+          Read Full Message
+          <ArrowRight className="h-3.5 w-3.5 flex-none" aria-hidden />
+        </Link>
+      )}
+
+      {update.sections && !compact && (
         <UpdateDetails
           id={update.id}
           sections={update.sections}

@@ -36,7 +36,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${display.variable} ${body.variable}`}>
-      <body>{children}</body>
+      {/* A full-height column, so a short page still puts the footer at the bottom
+          (main stretches to fill — see globals.css). */}
+      <body className="flex min-h-dvh flex-col">{children}</body>
     </html>
   );
 }

@@ -21,7 +21,7 @@ export type ScheduleEvent = {
   flyerLabel?: string;
   /**
    * Venue map PDF served from /public, e.g. "/docs/charlotte-hs-map.pdf".
-   * Omit until the venue sends one — a row with nothing at all renders TBD.
+   * Omit until the venue sends one — a row with nothing at all leaves the Info column blank.
    */
   mapUrl?: string;
   /** One-line venue note: parking, entrance, pit access. Omit when there's nothing to say. */

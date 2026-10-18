@@ -8,6 +8,8 @@ export type UpdateSection = {
   link?: { text: string; href: string };
   /** A table shown under `body`, e.g. an event's schedule. Each row has one cell per column. */
   table?: { columns: string[]; rows: string[][] };
+  /** A list shown under `body`, each item led by its bold `term`, e.g. volunteer roles. */
+  list?: { term: string; text: string }[];
 };
 
 export type UpdateImage = {
@@ -122,7 +124,27 @@ export const updates: Update[] = [
       },
       {
         heading: "Volunteers Still Needed",
-        body: "Thanks to everyone that has volunteered so far, but we still need several important positions filled for the season. Referee — we still need 2 more referees to run the matches; this is VERY important. Assistant FTA (field technical advisor) — we still need another FTA to help run the fields during the matches. Scorekeeper — this person helps set up the matches and posts the scores during the event. Scorers — we still need folks to be the scorers during the matches; we use scoring tablets, which keep this position relatively simple with little training. Emcee — looking for a couple of folks to be the emcees during the matches; a good emcee brings nice energy to events as the teams compete. Day-of volunteers — we always need the typical day-of volunteers, such as pit and practice field monitors and queuers who help the teams get to their assigned matches on time.",
+        body: "Thanks to everyone that has volunteered so far, but we still need several important positions filled for the season:",
+        list: [
+          { term: "Referee", text: "We still need 2 more referees to run the matches. This is VERY important." },
+          {
+            term: "Assistant FTA (Field Technical Advisor)",
+            text: "We still need another FTA to help run the fields during the matches.",
+          },
+          { term: "Scorekeeper", text: "This person helps set up the matches and posts the scores during the event." },
+          {
+            term: "Scorers",
+            text: "We still need folks to be the scorers during the matches. We use scoring tablets, which keep this position relatively simple with little training.",
+          },
+          {
+            term: "Emcee",
+            text: "Looking for a couple of folks to be the emcees during the matches. A good emcee brings nice energy to events as the teams compete.",
+          },
+          {
+            term: "Day-of Volunteers",
+            text: "We always need the typical day-of volunteers, such as pit and practice field monitors and queuers who help the teams get to their assigned matches on time.",
+          },
+        ],
       },
       {
         heading: "Website Update",

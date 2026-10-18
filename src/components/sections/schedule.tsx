@@ -26,7 +26,7 @@ export function Schedule() {
           <div>Date</div>
           <div>Event</div>
           <div>Location</div>
-          <div>Flyer</div>
+          <div>Info</div>
         </div>
 
         <div className="flex flex-col gap-0.5">
@@ -69,16 +69,10 @@ export function Schedule() {
 
 /**
  * Documents and notes for one event. These land one event at a time as the season
- * goes on, so a row with none of them falls back to TBD rather than sitting blank.
+ * goes on; a row with none of them leaves the column blank.
  */
 function EventDocs({ event }: { event: ScheduleEvent }) {
-  if (!event.flyerUrl && !event.mapUrl && !event.info && !event.albumId) {
-    return (
-      <div className="text-[13px] font-bold uppercase tracking-[0.05em] text-white/40">
-        TBD
-      </div>
-    );
-  }
+  if (!event.flyerUrl && !event.mapUrl && !event.info && !event.albumId) return <div />;
 
   return (
     <div className="flex flex-col items-start gap-1">

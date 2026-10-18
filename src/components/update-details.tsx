@@ -81,6 +81,15 @@ export function UpdateDetails({
             <p className="max-w-[70ch] text-sm leading-relaxed text-navy/75">
               <SectionBody section={section} />
             </p>
+            {section.list && (
+              <ul className="mt-2 flex max-w-[70ch] flex-col gap-1.5 text-sm leading-relaxed text-navy/75">
+                {section.list.map((item) => (
+                  <li key={item.term}>
+                    <strong className="font-bold text-navy">{item.term}</strong> — {item.text}
+                  </li>
+                ))}
+              </ul>
+            )}
             {section.table && <SectionTable table={section.table} />}
           </li>
         ))}

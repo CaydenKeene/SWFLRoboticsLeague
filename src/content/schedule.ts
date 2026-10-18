@@ -49,6 +49,7 @@ export const schedule: ScheduleEvent[] = [
     title: "Scrimmage",
     location: "Nova Classical STEM Academy",
     address: "7101 Banway Rd, Fort Myers, FL 33907",
+    info: "Access from Gladiolus Dr or Summerlin Rd; enter through the school's front doors.",
   },
   {
     date: "Nov 14",

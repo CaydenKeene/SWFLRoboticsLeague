@@ -81,10 +81,48 @@ export function UpdateDetails({
             <p className="max-w-[70ch] text-sm leading-relaxed text-navy/75">
               <SectionBody section={section} />
             </p>
+            {section.table && <SectionTable table={section.table} />}
           </li>
         ))}
       </ol>
     </>
+  );
+}
+
+function SectionTable({ table }: { table: NonNullable<UpdateSection["table"]> }) {
+  return (
+    <table className="mt-2.5 w-full max-w-[70ch] border-collapse text-left text-sm">
+      <thead>
+        <tr className="border-b-2 border-navy/15">
+          {table.columns.map((column) => (
+            <th
+              key={column}
+              scope="col"
+              className="px-3 py-1.5 font-display text-[11px] font-normal uppercase tracking-[0.1em] text-navy/50"
+            >
+              {column}
+            </th>
+          ))}
+        </tr>
+      </thead>
+      <tbody>
+        {table.rows.map((row, i) => (
+          <tr key={i} className={i % 2 === 0 ? "bg-navy/[0.04]" : ""}>
+            {row.map((cell, j) => (
+              <td
+                key={j}
+                className={cn(
+                  "px-3 py-1.5 align-top leading-snug",
+                  j === 0 ? "whitespace-nowrap font-bold text-navy" : "text-navy/75",
+                )}
+              >
+                {cell}
+              </td>
+            ))}
+          </tr>
+        ))}
+      </tbody>
+    </table>
   );
 }
 

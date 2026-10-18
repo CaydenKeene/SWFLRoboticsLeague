@@ -6,6 +6,8 @@ export type UpdateSection = {
    * public/docs. `text` must appear in `body` word for word; links open in a new tab.
    */
   link?: { text: string; href: string };
+  /** A table shown under `body`, e.g. an event's schedule. Each row has one cell per column. */
+  table?: { columns: string[]; rows: string[][] };
 };
 
 export type UpdateImage = {
@@ -54,6 +56,80 @@ export function updatePath(update: Update) {
 
 /** Rendered in array order, newest first — a new league email goes at the top. */
 export const updates: Update[] = [
+  {
+    id: "league-email-7",
+    emailNumber: 7,
+    date: "October 18, 2026",
+    title: "Scrimmage Next Weekend: Everyone Is Welcome",
+    summary:
+      "Here is information for the scrimmage event next weekend, Saturday, October 24th at Nova Classical STEM Academy in Fort Myers. This email covers what to expect, the location and schedule, pit rules, competition manual updates, being competition ready, registering for meets, the official Q&A page, volunteers still needed, and the website. Please share it with your teams.",
+    sections: [
+      {
+        heading: "What's Expected — Everyone Is Welcome!",
+        body: "Our first activity after the season kickoff is a practice scrimmage and team build day. This is where everyone essentially practices to have a League Meet. All teams are invited even if you don't have a working robot completed yet. Just have a box of parts? You are still invited — there may actually be other teams that can help you out. This is also a practice for all the volunteers learning new roles. We will be setting up our scoring system for the first time, and I am certain there will be some bugs to work out. Attendance is not mandatory but is highly encouraged. Can only make it for part of the day? You are still welcome and encouraged.",
+      },
+      {
+        heading: "Location",
+        body: "The scrimmage will be at Nova Classical STEM Academy, 7101 Banway Rd., Fort Myers, FL 33907. You can access the site from either Gladiolus Drive or Summerlin Road. Enter through the front doors of the school — here is a map link.",
+        link: { text: "here is a map link", href: "https://maps.app.goo.gl/p4WWuBJQRNdeJeXWA" },
+      },
+      {
+        heading: "Scrimmage Schedule",
+        body: "Here is the schedule for the day. This is not a perfect schedule and is subject to getting the scoring system set up and working, so be patient and feel free to help out and volunteer.",
+        table: {
+          columns: ["Time", "Activity"],
+          rows: [
+            ["7:30 AM", "Venue Access, Volunteer Check In, Load In Begins"],
+            ["7:30 AM – 9:00 AM", "Field and Scoring System Set Up"],
+            ["9:00 AM – 10:30 AM", "Scoring System Testing and Training"],
+            ["10:30 AM – 11:30 AM", "Practice Robot Inspections / Inspector Training"],
+            ["11:30 AM – 12:00 PM", "Practice Matches / Scorer Training / Referee Training"],
+            ["12:00 PM – 1:00 PM", "Lunch Break"],
+            ["1:00 PM – 3:30 PM", "Practice Matches / Scorer Training / Referee Training"],
+            ["3:30 PM", "Begin Clean Up and Load Out"],
+            ["4:30 PM", "Event Ends"],
+          ],
+        },
+      },
+      {
+        heading: "Pit Rules",
+        body: "The room we are using is a school cafeteria and essentially one large pit area. Typical FIRST policy is for eye protection and closed-toe shoes to be worn at all times in the pit areas. This means safety glasses and no sandals or Crocs-type shoes. For our rookies, you will need to purchase safety glasses for all of your team members. Food is OK, but please don't go crazy, to cut down on the garbage we will need to manage at the end of the day.",
+      },
+      {
+        heading: "Competition Manual Updates",
+        body: "The competition manual will continually get updates through the season. These updates are located under the Team Updates section of the season materials page. Team coaches can also sign up for the updates to be mailed to them directly as they happen. I find it very helpful to check this regularly — the changes and clarifications being made here help with understanding the rules and game play.",
+        link: {
+          text: "the season materials page",
+          href: "https://ftc-resources.firstinspires.org/ftc/game",
+        },
+      },
+      {
+        heading: "Are You Competition Ready?",
+        body: "Being competition ready means a team has completed its FIRST registration, has two mentors that have passed all their training and background checks, and has team members. Your team has to be competition ready in order to participate in the League Meets and League Tournament. You need to be competition ready several days before a meet, or the FIRST scoring system will not allow your team to be included in the event scoring. We only have 3–4 teams not yet ready, so I am sure that will get resolved soon.",
+      },
+      {
+        heading: "Registering for Meets",
+        body: "In Florida we use the FTC Region Manager. New coaches and mentors will need to create an account on Region Manager. It uses the same email that is attached to your FIRST account; it might use the same password, but it may also ask you to set up a separate one. Once you log in, select the team you manage and select the Events tab at the top. Select the event you want and you can register your team. Pretty straightforward once you get the hang of it. We are not requiring registration for the scrimmage, but we do for the rest of the events.",
+        link: { text: "FTC Region Manager", href: "https://ftcregion.com" },
+      },
+      {
+        heading: "FIRST Official Q&A Pages",
+        body: "The official question and answer pages are where the official interpretations of the FTC game rules are published. Team coaches are able to post questions using their FIRST login credentials. Similar to the Team Updates above, this is a good resource to learn how the game works — many of the team updates you might see begin as questions posted to the Q&A pages.",
+        link: {
+          text: "official question and answer pages",
+          href: "https://game-qa.firstinspires.org/",
+        },
+      },
+      {
+        heading: "Volunteers Still Needed",
+        body: "Thanks to everyone that has volunteered so far, but we still need several important positions filled for the season. Referee — we still need 2 more referees to run the matches; this is VERY important. Assistant FTA (field technical advisor) — we still need another FTA to help run the fields during the matches. Scorekeeper — this person helps set up the matches and posts the scores during the event. Scorers — we still need folks to be the scorers during the matches; we use scoring tablets, which keep this position relatively simple with little training. Emcee — looking for a couple of folks to be the emcees during the matches; a good emcee brings nice energy to events as the teams compete. Day-of volunteers — we always need the typical day-of volunteers, such as pit and practice field monitors and queuers who help the teams get to their assigned matches on time.",
+      },
+      {
+        heading: "Website Update",
+        body: "Check out the SWFL Robotics website — the one you're reading right now. All the email messages I send, along with the past messages and event photos, are being posted here for easy access. If you have a team email address you wish to be included in this distribution list, please send it to me.",
+      },
+    ],
+  },
   {
     id: "league-email-6",
     emailNumber: 6,

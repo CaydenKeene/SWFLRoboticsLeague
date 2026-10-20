@@ -65,6 +65,8 @@ export const updates: Update[] = [
     title: "Scrimmage Next Weekend: Everyone Is Welcome",
     summary:
       "Here is information for the scrimmage event next weekend, Saturday, October 24th at Nova Classical STEM Academy in Fort Myers. This email covers what to expect, the location and schedule, pit rules, competition manual updates, being competition ready, registering for meets, the official Q&A page, volunteers still needed, and the website. Please share it with your teams.",
+    flyerUrl: "/docs/scrimmage-flyer.pdf",
+    flyerLabel: "Scrimmage Flyer",
     sections: [
       {
         heading: "What's Expected — Everyone Is Welcome!",

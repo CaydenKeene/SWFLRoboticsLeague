@@ -112,7 +112,7 @@ export function UpdateCard({
       {update.sections && compact && (
         <Link
           href={path}
-          className="mt-3.5 inline-flex items-center gap-1.5 font-display text-xs uppercase tracking-[0.08em] text-rust transition-opacity hover:opacity-70"
+          className="mt-3.5 flex w-fit items-center gap-1.5 font-display text-xs uppercase tracking-[0.08em] text-rust transition-opacity hover:opacity-70"
         >
           Read Full Message
           <ArrowRight className="h-3.5 w-3.5 flex-none" aria-hidden />

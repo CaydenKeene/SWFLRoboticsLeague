@@ -10,7 +10,7 @@ const SECONDS_PER_LOGO = 3;
 /**
  * Sponsor logos scrolling left to right in an endless loop. The track holds the
  * logos twice and slides from -50% to 0, so the second half lands exactly where
- * the first began. Pauses on hover and stands still for reduced-motion users.
+ * the first began. Stands still for reduced-motion users.
  */
 export function Sponsors() {
   if (sponsors.length === 0) return null;
@@ -27,9 +27,9 @@ export function Sponsors() {
         {sponsorsHeading}
       </h2>
 
-      <div className="group overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
+      <div className="overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
         <div
-          className="flex w-max animate-marquee-right group-hover:[animation-play-state:paused] motion-reduce:animate-none"
+          className="flex w-max animate-marquee-right motion-reduce:animate-none"
           style={{ animationDuration: `${half.length * SECONDS_PER_LOGO}s` }}
         >
           {/* Screen readers and keyboard users get the logos once; the rest are visual repeats. */}

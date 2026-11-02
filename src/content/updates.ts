@@ -59,6 +59,44 @@ export function updatePath(update: Update) {
 /** Rendered in array order, newest first — a new league email goes at the top. */
 export const updates: Update[] = [
   {
+    id: "league-email-8",
+    emailNumber: 8,
+    date: "November 1, 2026",
+    title: "Meet 1 Is November 14th",
+    summary:
+      "The first ever SWFL Robotics FTC League Scrimmage went very well, and I appreciate all the teams who attended and all the new volunteers who participated. Now we move on to our first official league meet. This email covers Meet 1, the team league fee, registering for events, team arrival and supervision, practice field access, and the number of teams in our league. Please forward it to your team members and parents.",
+    flyerUrl: "/docs/inspection-checklist.pdf",
+    flyerLabel: "Robot Inspection Checklist",
+    sections: [
+      {
+        heading: "Meet 1 Is on November 14th",
+        body: "The location will be back at Charlotte High School in Punta Gorda: Charlotte Performing Arts Center, 701 Carmalita St., Punta Gorda, FL 33950.",
+      },
+      {
+        heading: "Team League Fee",
+        body: "Have you paid your league fee? If you were successful in getting a sponsor for your league fee, please forward their logo to swflrobotics@gmail.com by November 8th. I am hoping to order some promotional material before Meet 1, so please get it to me if possible. We are also adding the logos to the league website.",
+      },
+      {
+        heading: "Registering for Events",
+        body: "Most of the returning teams already know this: to attend a league meet, you need to register through FTC Region Manager. Event registration is open for all events now. For new teams, the mentor simply sets up an account using the same email you use for your FIRST account, and your affiliated team should be there. Your team must be registered for the meet by November 12th in order for your team to be available to the scoring system on Saturday. If your team is not quite ready, it is not mandatory for you to compete, and we would still like to see you at the event. You can even bring your robot and get help from other teams on your build.",
+        link: { text: "FTC Region Manager", href: "https://ftcregion.com/" },
+      },
+      {
+        heading: "Team Arrival and Supervision",
+        body: "A team adult must check in each team per Section 3.1 of the Competition Manual. You must also bring a printed roster from your team dashboard. Please remember that all team members must have a checkmark next to their name on the roster — this confirms their parent has signed the proper forms with FIRST. Also per Section 3.21 of the Competition Manual, a team adult (and preferably two) must be present with the team the entire day. Important: if you have had a team member dropped off in the morning, please do not leave the event until all of your team members have been picked up by their parents.",
+      },
+      {
+        heading: "Practice Field Access",
+        body: "Please arrive ready to compete. Getting all the teams through inspection as early as possible is critical to starting matches. To help you, here is the inspection checklist from FIRST — the same checklist the inspectors use. Practice field access is only allowed after your team has passed inspection. Some of the common items I noticed at the scrimmage were missing alliance markers, on/off switches, loose wiring, and size constraints.",
+        link: { text: "the inspection checklist from FIRST", href: "/docs/inspection-checklist.pdf" },
+      },
+      {
+        heading: "Number of Teams in Our League",
+        body: "We officially have 24 registered and event-ready teams in our league, and this is the rookie season for 10 of them! Experienced teams, please reach out and help these new teams have a successful season.",
+      },
+    ],
+  },
+  {
     id: "league-email-7",
     emailNumber: 7,
     date: "October 18, 2026",

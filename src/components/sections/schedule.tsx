@@ -76,6 +76,16 @@ function EventDocs({ event }: { event: ScheduleEvent }) {
 
   return (
     <div className="flex flex-col items-start gap-1">
+      {/* Once an event is over its photos are what people come for, so they lead. */}
+      {event.albumId && (
+        <Link
+          href={`/photos/${event.albumId}`}
+          className="flex items-center gap-1.5 text-[13px] font-bold text-orange underline-offset-4 hover:underline"
+        >
+          <Camera className="h-3.5 w-3.5 flex-none" aria-hidden />
+          Event Photos
+        </Link>
+      )}
       {event.flyerUrl && (
         <DocLink href={event.flyerUrl} icon={FileText}>
           {event.flyerLabel ?? `${event.title} Flyer`} (PDF)
@@ -87,15 +97,6 @@ function EventDocs({ event }: { event: ScheduleEvent }) {
         </DocLink>
       )}
       {event.info && <p className="text-[13px] text-white/60">{event.info}</p>}
-      {event.albumId && (
-        <Link
-          href={`/photos/${event.albumId}`}
-          className="flex items-center gap-1.5 text-[13px] font-bold text-orange underline-offset-4 hover:underline"
-        >
-          <Camera className="h-3.5 w-3.5 flex-none" aria-hidden />
-          Event Photos
-        </Link>
-      )}
     </div>
   );
 }

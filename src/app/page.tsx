@@ -1,6 +1,7 @@
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { Hero } from "@/components/sections/hero";
+import { Sponsors } from "@/components/sections/sponsors";
 import { Updates } from "@/components/sections/updates";
 import { Schedule } from "@/components/sections/schedule";
 import { Contact } from "@/components/sections/contact";
@@ -16,6 +17,7 @@ export default function Home() {
       <SiteHeader />
       <main>
         <Hero />
+        <Sponsors />
         <Updates />
         <Schedule />
         <Contact />

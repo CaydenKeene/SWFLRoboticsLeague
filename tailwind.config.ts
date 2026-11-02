@@ -21,6 +21,17 @@ const config: Config = {
         display: ["var(--font-display)", "sans-serif"],
         sans: ["var(--font-body)", "system-ui", "sans-serif"],
       },
+      keyframes: {
+        // Slides a doubled track by one copy's width, rightward, for a seamless loop.
+        "marquee-right": {
+          from: { transform: "translateX(-50%)" },
+          to: { transform: "translateX(0)" },
+        },
+      },
+      animation: {
+        // Duration is set inline by the sponsor banner, from its logo count.
+        "marquee-right": "marquee-right 30s linear infinite",
+      },
     },
   },
   plugins: [],

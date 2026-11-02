@@ -38,6 +38,10 @@ store at runtime (see Event Photos below).
   `schedule`, `contact`, `donate`). `updates` pairs the newest email, shown compact
   (summary plus a link to its own page), with a slideshow (`photo-slideshow.tsx`) of the
   newest album; the email takes the full width until an album exists
+- `src/components/sections/sponsors.tsx` — the sponsor logo banner between the hero and
+  updates, scrolling left to right; hidden while `sponsors.ts` is empty. Logos live in
+  `public/sponsors/` as trimmed PNGs ~240px tall on white or transparent — the banner
+  sizes them by shape. Keep donation amounts out of the file names
 - `src/components/site-header.tsx` — sticky header; client component
   (`"use client"` for the mobile menu toggle)
 - `src/components/copy-email-button.tsx` — client component; copies `site.email` to the

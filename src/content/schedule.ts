@@ -51,6 +51,7 @@ export const schedule: ScheduleEvent[] = [
     address: "7101 Banway Rd, Fort Myers, FL 33907",
     flyerUrl: "/docs/scrimmage-flyer.pdf",
     info: "Access from Gladiolus Dr or Summerlin Rd; enter through the school's front doors.",
+    albumId: "2026-10-24-scrimmage",
   },
   {
     date: "Nov 14",

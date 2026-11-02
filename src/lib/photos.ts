@@ -1,5 +1,6 @@
 import { cache } from "react";
 import { ListObjectsV2Command, S3Client, type _Object } from "@aws-sdk/client-s3";
+import { PHASE_PRODUCTION_BUILD } from "next/constants";
 import { site } from "@/content/site";
 
 export type Photo = {
@@ -44,8 +45,9 @@ export function albumPath(album: Album) {
 /**
  * Every album in the photo store, newest first. Read-only keys come from the
  * PHOTOS_S3_ACCESS_KEY / PHOTOS_S3_SECRET_KEY environment variables; without them
- * (or if the store is down) this returns no albums and /photos shows its empty state,
- * so the site never fails to build or render over photos.
+ * this returns no albums and /photos shows its empty state. If the store can't be
+ * reached, a build carries on without albums, but a live render throws so the last
+ * good page stays up (see the catch below).
  */
 export const getAlbums = cache(async (): Promise<Album[]> => {
   const accessKeyId = process.env.PHOTOS_S3_ACCESS_KEY;
@@ -75,8 +77,16 @@ export const getAlbums = cache(async (): Promise<Album[]> => {
       token = page.IsTruncated ? page.NextContinuationToken : undefined;
     } while (token);
   } catch (error) {
-    console.error("[photos] Couldn't list the photo store:", error);
-    return [];
+    // A deploy shouldn't fail because the store is down: build without albums, and
+    // the pages fill in within 5 minutes once it's back.
+    if (process.env.NEXT_PHASE === PHASE_PRODUCTION_BUILD) {
+      console.error("[photos] Couldn't list the photo store; building without albums:", error);
+      return [];
+    }
+    // At runtime, fail the render instead. Next keeps serving the last good page and
+    // tries again on the next request. Returning [] here would be saved as a real
+    // answer: an empty /photos, or a "not found" album page that sticks.
+    throw new Error("[photos] Couldn't list the photo store", { cause: error });
   }
 
   const byFolder = new Map<string, string[]>();

@@ -55,6 +55,12 @@ export const sponsors: Sponsor[] = [
     width: 433,
     height: 115,
   },
+  {
+    name: "Autosled",
+    logo: "/sponsors/autosled.png",
+    width: 253,
+    height: 240,
+  },
 ];
 
 export const sponsorsHeading = "Thank You to Our Sponsors";

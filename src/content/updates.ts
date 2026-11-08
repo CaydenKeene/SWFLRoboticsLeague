@@ -42,6 +42,11 @@ export type Update = {
    * Defaults to `"<title> Flyer"`; set it where that reads awkwardly.
    */
   flyerLabel?: string;
+  /**
+   * More PDFs from /public/docs shown beside the flyer link, e.g. a checklist that
+   * came attached to the email. `label` is the link text; "(PDF)" is added for you.
+   */
+  attachments?: { href: string; label: string }[];
   /** Images shown side by side under the summary; omit for text-only messages. */
   images?: UpdateImage[];
   /** Numbered detail blocks; omit for short announcements. */
@@ -58,6 +63,82 @@ export function updatePath(update: Update) {
 
 /** Rendered in array order, newest first — a new league email goes at the top. */
 export const updates: Update[] = [
+  {
+    id: "league-email-9",
+    emailNumber: 9,
+    date: "November 8, 2026",
+    title: "Getting Ready for Meet 1",
+    summary:
+      "Getting ready for the BIG day! Meet 1 is this Saturday, November 14th. This email covers the meet location and schedule, registering on Region Manager, team arrival and supervision, field and event setup, practice field access, volunteer registration, the referee and scorer Zoom call, lunch, pit safety, and the league fee. Please share it with your team members and parents.",
+    flyerUrl: "/docs/meet-1-flyer.pdf",
+    flyerLabel: "Meet 1 Flyer",
+    attachments: [{ href: "/docs/inspection-checklist.pdf", label: "Robot Inspection Checklist" }],
+    sections: [
+      {
+        heading: "Meet Location and Schedule",
+        body: "Meet 1 is this coming Saturday, November 14th, and we will be back at Charlotte High School in Punta Gorda: Charlotte Performing Arts Center, 701 Carmalita St., Punta Gorda, FL 33950. The event flyer has the schedule for the day. Please be prompt — the sooner we can get all the teams inspected, the quicker match play can begin.",
+        link: { text: "The event flyer", href: "/docs/meet-1-flyer.pdf" },
+        table: {
+          columns: ["Time", "Activity"],
+          rows: [
+            ["6:45 AM", "Venue Access, Load In Begins"],
+            ["7:00 AM", "Volunteer Check In"],
+            ["7:45 – 8:15 AM", "Team Arrival"],
+            ["8:30 AM", "Robot Inspections Begin"],
+            ["9:00 AM", "Scorer / Referee Meeting"],
+            ["9:20 AM", "Practice Matches (optional, after inspection)"],
+            ["9:30 AM", "Check-In and Inspection Deadline"],
+            ["10:15 AM", "Drivers' Meeting"],
+            ["10:30 AM", "Opening Ceremony"],
+            ["10:45 AM", "Qualification Matches Begin"],
+            ["12:00 – 1:00 PM", "Lunch Break"],
+            ["About 4:00 PM", "Last Qualification Match"],
+            ["4:15 PM", "Teardown and Load Out"],
+            ["5:15 PM", "Event Ends"],
+          ],
+        },
+      },
+      {
+        heading: "Team Registration on Region Manager",
+        body: "Most of the returning teams already know this: to attend a league meet, you need to register through FTC Region Manager. Event registration is open for all events now. For new teams, the mentor simply sets up an account using the same email you use for your FIRST account, and your affiliated team should show there. Your team must be registered for the meet by November 12th in order for your team to be available to the scoring system on Saturday. If your team is not quite ready, it is not mandatory for you to compete, and we would still like to see you at the event. You can even bring your robot and get help from other teams on your build. We currently have 18 of 24 league teams registered for Meet 1.",
+        link: { text: "FTC Region Manager", href: "https://ftcregion.com/" },
+      },
+      {
+        heading: "Team Arrival, Supervision, and Printed Roster",
+        body: "A team adult must check in each team per Section 3.1 of the Competition Manual. You must also bring a printed roster from your team dashboard. Please remember that all team members must have a checkmark next to their name on the roster — this confirms each team member's parent has signed the proper forms with FIRST. Also per Section 3.21 of the Competition Manual, a team adult (and preferably two) must be present with the team the entire day. Important: if you have had a team member dropped off in the morning, please do not leave the event until all of your team members have been picked up by their parents.",
+      },
+      {
+        heading: "Field and Event Setup",
+        body: "Teams, please provide folks to help set up the competition fields. We did very well at the scrimmage.",
+      },
+      {
+        heading: "Practice Field Access",
+        body: "Please arrive ready to compete. Getting all the teams through inspection as early as possible is critical to starting matches. To help you, here is the inspection checklist from FIRST — the same checklist the inspectors use. Practice field access is only allowed after your team has passed inspection. Some of the common items I noticed at the scrimmage were missing alliance markers, on/off switches, loose wiring, and size constraints.",
+        link: { text: "the inspection checklist from FIRST", href: "/docs/inspection-checklist.pdf" },
+      },
+      {
+        heading: "Volunteer Registration — Referees and Scorers Needed",
+        body: "Adults, please let us know you wish to volunteer by signing up through your FIRST Dashboard. On the left, use the \"Switch Persona\" option and you should see an option to volunteer there. We are still looking for additional scorers and referees for all of the meets.",
+      },
+      {
+        heading: "Referee and Scorer Zoom Call",
+        body: "This coming Tuesday, November 10th at 7:00 PM Eastern, I would like all those planning to help with refereeing and scoring to join a Zoom call so we can hit the ground running on Saturday. The call should only take about 45 minutes. The Zoom link went out with this email; if you need it, contact swflrobotics@gmail.com.",
+      },
+      {
+        heading: "Lunch",
+        body: "Just a quick reminder that teams are responsible for their own lunches. We have an hour programmed for the lunch break. Teams do need to be on time at the end of lunch to keep the day on schedule, so please plan ahead.",
+      },
+      {
+        heading: "Pit Safety",
+        body: "Quick reminder to bring safety glasses, with side shields, for everyone in the pit areas and at the competition fields. And only closed-toe shoes, please.",
+      },
+      {
+        heading: "Team League Fee",
+        body: "Have you paid your league fee? We still have some teams that need to provide their league fee. Use the Donate Now button at the bottom of this website to make the payment.",
+        link: { text: "Donate Now", href: "/#donate" },
+      },
+    ],
+  },
   {
     id: "league-email-8",
     emailNumber: 8,

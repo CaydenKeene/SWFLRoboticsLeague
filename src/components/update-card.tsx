@@ -75,16 +75,26 @@ export function UpdateCard({
 
       <p className="max-w-[70ch] text-sm leading-relaxed text-navy/75">{update.summary}</p>
 
-      {update.flyerUrl && (
-        <a
-          href={update.flyerUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-3.5 inline-flex items-center gap-1.5 font-display text-xs uppercase tracking-[0.08em] text-rust underline decoration-rust/30 underline-offset-4 transition-colors hover:decoration-rust"
-        >
-          <FileText className="h-3.5 w-3.5 flex-none" aria-hidden />
-          {update.flyerLabel ?? `${update.title} Flyer`} (PDF)
-        </a>
+      {(update.flyerUrl || update.attachments) && (
+        <div className="mt-3.5 flex flex-wrap gap-x-6 gap-y-2">
+          {[
+            ...(update.flyerUrl
+              ? [{ href: update.flyerUrl, label: update.flyerLabel ?? `${update.title} Flyer` }]
+              : []),
+            ...(update.attachments ?? []),
+          ].map((doc) => (
+            <a
+              key={doc.href}
+              href={doc.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 font-display text-xs uppercase tracking-[0.08em] text-rust underline decoration-rust/30 underline-offset-4 transition-colors hover:decoration-rust"
+            >
+              <FileText className="h-3.5 w-3.5 flex-none" aria-hidden />
+              {doc.label} (PDF)
+            </a>
+          ))}
+        </div>
       )}
 
       {update.images && (

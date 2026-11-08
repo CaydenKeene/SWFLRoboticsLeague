@@ -58,6 +58,8 @@ export const schedule: ScheduleEvent[] = [
     title: "Meet 1",
     location: "Charlotte Performing Arts Center",
     address: "701 Carmalita St, Punta Gorda, FL 33950",
+    flyerUrl: "/docs/meet-1-flyer.pdf",
+    flyerLabel: "Meet 1 Flyer",
   },
   { date: "Dec 5", title: "Meet 2", location: null },
   {

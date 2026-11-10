@@ -61,6 +61,12 @@ export const sponsors: Sponsor[] = [
     width: 253,
     height: 240,
   },
+  {
+    name: "US4 Works",
+    logo: "/sponsors/us4works.png",
+    width: 475,
+    height: 240,
+  },
 ];
 
 export const sponsorsHeading = "Thank You to Our Sponsors";

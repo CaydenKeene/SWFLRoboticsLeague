@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
-import { ExternalLink, X } from "lucide-react";
+import { X } from "lucide-react";
 import {
   cheatSheet,
   rules,
@@ -249,7 +249,7 @@ function ScoringTab({ link, goFouls }: { link: ManualLink; goFouls: () => void }
             ))}
           </div>
           <p className="mb-1 mt-2.5">{penalties.text}</p>
-          <Refs refs={penalties.refs} link={link} />
+          <Refs refs={penalties.refs} link={link} />{" "}
           <a
             href="#fouls"
             onClick={(e) => {
@@ -302,6 +302,7 @@ export function CheatSheet() {
   const [query, setQuery] = useState("");
   const [filter, setFilter] = useState(0);
   const [openRule, setOpenRule] = useState<Rule | null>(null);
+  const [sheetOpen, setSheetOpen] = useState(false);
   const [base, setBase] = useState(cheatSheet.defaultManualUrl);
   const [draft, setDraft] = useState("");
   const [isIPhone, setIsIPhone] = useState(false);
@@ -379,6 +380,7 @@ export function CheatSheet() {
 
   function openSheet(r: Rule) {
     setOpenRule(r);
+    setSheetOpen(true);
     dialogRef.current?.showModal();
     document.body.style.overflow = "hidden";
   }
@@ -596,9 +598,12 @@ export function CheatSheet() {
           the backdrop; a tap on the backdrop lands on the dialog itself. */}
       <dialog
         ref={dialogRef}
+        // The last rule stays in place while closed. Clearing it here raced the
+        // next tap: the close event could land after a new rule was set,
+        // leaving an open, empty sheet.
         onClose={() => {
           document.body.style.overflow = "";
-          setOpenRule(null);
+          setSheetOpen(false);
         }}
         onClick={(e) => {
           if (e.target === e.currentTarget) closeSheet();
@@ -646,16 +651,15 @@ export function CheatSheet() {
                 className="mt-2.5 flex min-h-[42px] items-center justify-center gap-1.5 border-2 border-navy bg-navy text-sm font-bold text-white"
               >
                 {fouls.sheet.openLabel}
-                {openRule.page}
-                <ExternalLink className="h-4 w-4" aria-hidden />
+                {openRule.page} ↗
               </a>
             </div>
           </>
         )}
-        {openRule && toast}
+        {sheetOpen && toast}
       </dialog>
 
-      {!openRule && toast}
+      {!sheetOpen && toast}
     </div>
   );
 }

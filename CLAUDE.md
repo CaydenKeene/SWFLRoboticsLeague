@@ -29,6 +29,11 @@ store at runtime (see Event Photos below).
 - `src/app/photos/` — `/photos` lists the event albums; `/photos/[id]` is one album's
   thumbnail grid. Both read the photo store via `src/lib/photos.ts` and refresh every
   5 minutes (ISR), so new uploads appear without a deploy
+- `src/app/cheat-sheet/` — `/cheat-sheet`, the BIOBUZZ fouls/scoring/terms reference scorers
+  use on their phones at events. **Deliberately unlinked** — reached only by its shared URL,
+  `noindex`, and drawn without the site header/footer. Copy and the 40 rules live in
+  `src/content/cheat-sheet.ts`; `src/components/cheat-sheet.tsx` is the client UI (tabs in
+  the URL hash, a `<dialog>` bottom sheet per rule, a manual-PDF link saved in localStorage)
 - `src/components/photo-gallery.tsx` — client component; an album's grid and its
   lightbox, a native `<dialog>` like the donate popup. The open photo is mirrored in the
   URL hash (`#12`) so single photos can be shared

@@ -61,12 +61,21 @@ export const schedule: ScheduleEvent[] = [
     flyerUrl: "/docs/meet-1-flyer.pdf",
     flyerLabel: "Meet 1 Flyer",
   },
-  { date: "Dec 5", title: "Meet 2", location: null },
+  {
+    date: "Dec 5",
+    title: "Meet 2",
+    location: "Skye Ranch School",
+    address: "9501 Lorraine Rd, Sarasota, FL 34241",
+    flyerUrl: "/docs/meet-2-flyer.pdf",
+    flyerLabel: "Meet 2 Flyer",
+  },
   {
     date: "Jan 16",
     title: "Meet 3",
     location: "Fort Myers Senior High School",
     address: "2635 Cortez Blvd, Fort Myers, FL 33901",
+    flyerUrl: "/docs/meet-3-flyer.pdf",
+    flyerLabel: "Meet 3 Flyer",
   },
   { date: "Jan 30", title: "League Judging Interviews", location: "Via Zoom" },
   {

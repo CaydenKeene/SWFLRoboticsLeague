@@ -42,8 +42,8 @@ export type RuleFilter = {
 export const cheatSheet = {
   title: "BIOBUZZ Cheat Sheet",
   manualVersion: "Manual TU09",
-  /** Official manual PDF. Scorers can swap in their own copy under "Manual link settings". */
-  defaultManualUrl: "https://ftc-resources.firstinspires.org/ftc/game/manual",
+  /** The official manual PDF. Every "Manual p.N" link opens it at that page. */
+  manualUrl: "https://ftc-resources.firstinspires.org/ftc/game/manual",
   tabs: [
     { id: "fouls", label: "Fouls" },
     { id: "scoring", label: "Scoring" },
@@ -218,14 +218,6 @@ export const cheatSheet = {
     openLabel: "Open in manual · p.",
     footnote:
       "Tap Open in manual to jump to the page. Cards carry into later matches until cleared after Practice, Quals and division Playoffs.",
-  },
-
-  settings: {
-    summary: "Manual link settings",
-    text: "Links open the official full manual PDF at the TU09 page number. If you have your own copy of the PDF online, paste its link here. Page numbers may shift in later Team Updates.",
-    placeholder: "https://…manual.pdf",
-    save: "Save link",
-    reset: "Reset",
   },
 
   /** iPhone's PDF viewer ignores #page=, so tapping a manual link shows where to go. */

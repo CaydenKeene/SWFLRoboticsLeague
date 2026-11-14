@@ -15,9 +15,8 @@ import {
 } from "@/content/cheat-sheet";
 import { cn } from "@/lib/utils";
 
-const { fouls, scoring, settings, iphoneToast } = cheatSheet;
+const { fouls, scoring, iphoneToast } = cheatSheet;
 const TAB_IDS = cheatSheet.tabs.map((t) => t.id);
-const STORAGE_KEY = "bbmanual";
 
 /**
  * Chip colors. Most are league tokens; the YELLOW and RED CARD chips keep true
@@ -303,8 +302,6 @@ export function CheatSheet() {
   const [filter, setFilter] = useState(0);
   const [openRule, setOpenRule] = useState<Rule | null>(null);
   const [sheetOpen, setSheetOpen] = useState(false);
-  const [base, setBase] = useState(cheatSheet.defaultManualUrl);
-  const [draft, setDraft] = useState("");
   const [isIPhone, setIsIPhone] = useState(false);
   const [toastPage, setToastPage] = useState<number | null>(null);
   const [headerH, setHeaderH] = useState(100);
@@ -339,16 +336,9 @@ export function CheatSheet() {
     };
   }, []);
 
-  // Saved manual link and iPhone detection only exist in the browser.
+  // The user agent only exists in the browser.
   useEffect(() => {
     setIsIPhone(/iPhone|iPod/.test(navigator.userAgent));
-    try {
-      const saved = localStorage.getItem(STORAGE_KEY);
-      if (saved) {
-        setBase(saved);
-        setDraft(saved);
-      }
-    } catch {}
   }, []);
 
   // The search box sticks just under the header, whose height varies by phone.
@@ -370,7 +360,7 @@ export function CheatSheet() {
   }, [toastPage]);
 
   const link: ManualLink = (page) => ({
-    href: `${base}#page=${page}`,
+    href: `${cheatSheet.manualUrl}#page=${page}`,
     target: "_blank",
     rel: "noopener",
     onClick: () => {
@@ -387,25 +377,6 @@ export function CheatSheet() {
 
   function closeSheet() {
     dialogRef.current?.close();
-  }
-
-  function saveManual() {
-    const v = draft.trim();
-    if (!/^https?:\/\//.test(v)) return;
-    const next = v.split("#")[0];
-    setBase(next);
-    setDraft(next);
-    try {
-      localStorage.setItem(STORAGE_KEY, next);
-    } catch {}
-  }
-
-  function resetManual() {
-    setBase(cheatSheet.defaultManualUrl);
-    setDraft("");
-    try {
-      localStorage.removeItem(STORAGE_KEY);
-    } catch {}
   }
 
   const q = query.trim().toLowerCase();
@@ -558,40 +529,6 @@ export function CheatSheet() {
           ))}
           <Note>{cheatSheet.terms.footnote}</Note>
         </section>
-
-        <div className="mt-3.5 text-xs text-navy/70">
-          <details>
-            <summary className="cursor-pointer py-1">
-              <b>{settings.summary}</b>
-            </summary>
-            <p className="my-1">{settings.text}</p>
-            <input
-              type="url"
-              inputMode="url"
-              value={draft}
-              onChange={(e) => setDraft(e.target.value)}
-              placeholder={settings.placeholder}
-              aria-label="Manual PDF link"
-              className="mt-1 w-full border-2 border-navy bg-white p-2.5 text-base text-navy focus:border-orange focus:outline-none"
-            />
-            <div className="flex gap-1.5">
-              <button
-                type="button"
-                onClick={saveManual}
-                className="mt-1.5 min-h-10 border-2 border-navy bg-white px-3.5 text-[13px] font-bold text-navy"
-              >
-                {settings.save}
-              </button>
-              <button
-                type="button"
-                onClick={resetManual}
-                className="mt-1.5 min-h-10 border-2 border-navy bg-white px-3.5 text-[13px] font-bold text-navy"
-              >
-                {settings.reset}
-              </button>
-            </div>
-          </details>
-        </div>
       </main>
 
       {/* The rule's bottom sheet. A native <dialog> gives Esc, focus trapping and
